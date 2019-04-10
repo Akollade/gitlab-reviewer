@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import MergeRequestList from './MergeRequestList';
 
-class App extends Component {
-  render() {
+interface Props {
+}
+
+interface State {
+  merge_requests: any;
+}
+
+class App extends Component<Props, State> {
+  public constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      merge_requests: []
+    };
+  }
+
+  public componentDidMount() {
+    const instance = axios.create({
+      baseURL: process.env.REACT_APP_GITLAB_URL + '/api/v4',
+      timeout: 1000,
+      headers: {'PRIVATE-TOKEN': process.env.REACT_APP_GITLAB_TOKEN}
+    });
+
+    var self = this;
+
+    instance.get('/merge_requests?state=opened&scope=all&order_by=updated_at').then(function (response) {
+      self.setState({
+        'merge_requests': response.data
+      });
+    })
+  }
+
+  public render() {
+    let { merge_requests } = this.state ;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Gitlab Reviewer</h1>
+
+        <MergeRequestList mergeRequests={merge_requests} />
       </div>
     );
   }
