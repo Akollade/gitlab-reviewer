@@ -19,7 +19,6 @@ class MergeRequestItem extends Component<Props, State> {
 
     return (
         <tr>
-          <td>{mergeRequest.upvotes}</td>
           <td><a href={mergeRequest.web_url} target="blank">{mergeRequest.title}</a></td>
           <td>{mergeRequest.author.name}</td>
           <td>{mergeRequest.upvotes}</td>
