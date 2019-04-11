@@ -17,7 +17,10 @@ class MergeRequestItem extends Component<Props, State> {
     let { mergeRequest } = this.props ;
 
     return (
-        <li>{mergeRequest.title}</li>
+        <tr>
+          <td>{mergeRequest.title}</td>
+          <td>{mergeRequest.author.name}</td>
+        </tr>
     );
   }
 }

@@ -22,7 +22,13 @@ class MergeRequestList extends Component<Props, State> {
     );
 
     return (
-        <ul>{listItems}</ul>
+        <table>
+          <thead>
+            <th>Title</th>
+            <th>Author</th>
+          </thead>
+          <tbody>{listItems}</tbody>
+        </table>
     );
   }
 }
