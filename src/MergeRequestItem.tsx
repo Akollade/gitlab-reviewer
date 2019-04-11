@@ -20,7 +20,7 @@ class MergeRequestItem extends Component<Props, State> {
     return (
         <tr>
           <td><a href={mergeRequest.web_url} target="blank">{mergeRequest.title}</a></td>
-          <td>{mergeRequest.author.name}</td>
+          <td><img src={mergeRequest.author.avatar_url} alt={mergeRequest.author.name} width="35px" /></td>
           <td>{mergeRequest.upvotes}</td>
           <td>{mergeRequest.downvotes}</td>
         </tr>

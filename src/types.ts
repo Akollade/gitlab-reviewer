@@ -5,5 +5,6 @@ export interface MergeRequestType {
     web_url: string;
     author: {
         name: string;
+        avatar_url: string;
     }
 }
