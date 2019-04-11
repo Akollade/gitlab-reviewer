@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { MergeRequestType } from './types';
 
 interface Props {
-    mergeRequest: any;
+    mergeRequest: MergeRequestType;
 }
 
 interface State {
@@ -18,8 +19,11 @@ class MergeRequestItem extends Component<Props, State> {
 
     return (
         <tr>
-          <td>{mergeRequest.title}</td>
+          <td>{mergeRequest.upvotes}</td>
+          <td><a href={mergeRequest.web_url} target="blank">{mergeRequest.title}</a></td>
           <td>{mergeRequest.author.name}</td>
+          <td>{mergeRequest.upvotes}</td>
+          <td>{mergeRequest.downvotes}</td>
         </tr>
     );
   }
