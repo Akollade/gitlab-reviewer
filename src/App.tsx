@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import MergeRequestList from './MergeRequestList';
+import { MergeRequestType } from './types';
 
 interface Props {
 }
 
 interface State {
-  merge_requests: any;
+  mergeRequests: MergeRequestType[];
 }
 
 class App extends Component<Props, State> {
@@ -15,34 +16,32 @@ class App extends Component<Props, State> {
     super(props);
 
     this.state = {
-      merge_requests: []
+      mergeRequests: []
     };
   }
 
-  public componentDidMount() {
-    const instance = axios.create({
+  public async componentDidMount() {
+    const axiosInstance = axios.create({
       baseURL: process.env.REACT_APP_GITLAB_URL + '/api/v4',
-      timeout: 1000,
+      timeout: 5000,
       headers: {'PRIVATE-TOKEN': process.env.REACT_APP_GITLAB_TOKEN}
     });
 
-    var self = this;
+    let mergeRequestsResponse = await axiosInstance.get('/merge_requests?state=opened&scope=all&order_by=updated_at');
 
-    instance.get('/merge_requests?state=opened&scope=all&order_by=updated_at').then(function (response) {
-      self.setState({
-        'merge_requests': response.data
-      });
-    })
+    this.setState({
+      'mergeRequests': mergeRequestsResponse.data
+    });
   }
 
   public render() {
-    let { merge_requests } = this.state ;
+    let { mergeRequests } = this.state ;
 
     return (
       <div className="App">
         <h1>Gitlab Reviewer</h1>
 
-        <MergeRequestList mergeRequests={merge_requests} />
+        <MergeRequestList mergeRequests={mergeRequests} />
       </div>
     );
   }

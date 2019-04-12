@@ -1,4 +1,5 @@
 export interface MergeRequestType {
+    id: number;
     title: string;
     upvotes: number;
     downvotes: number;

@@ -4,7 +4,7 @@ import MergeRequestItem from './MergeRequestItem';
 import { MergeRequestType } from './types';
 
 interface Props {
-    mergeRequests: [MergeRequestType];
+    mergeRequests: MergeRequestType[];
 }
 
 interface State {
@@ -18,17 +18,19 @@ class MergeRequestList extends Component<Props, State> {
   public render() {
     let { mergeRequests } = this.props ;
 
-    const listItems = mergeRequests.map((mergeRequest: any) =>
+    const listItems = mergeRequests.map((mergeRequest) =>
       <MergeRequestItem key={mergeRequest.id} mergeRequest={mergeRequest} />
     );
 
     return (
         <table>
           <thead>
+            <tr>
             <th>Title</th>
             <th>Author</th>
             <th>+1</th>
             <th>-1</th>
+            </tr>
           </thead>
           <tbody>{listItems}</tbody>
         </table>
