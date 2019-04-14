@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import MergeRequestList from './MergeRequestList';
-import { MergeRequestType } from './types';
+import { MergeRequestType } from './types/MergeRequest';
 
 interface Props {
 }
