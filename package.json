@@ -8,16 +8,19 @@
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
     "axios": "^0.18.0",
+    "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8",
     "typescript": "3.3.4000"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "yarn run watch:css & react-scripts start",
+    "build": "yarn run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/styles/index.scss -o src/styles/main.scss",
+    "watch:css": "postcss src/styles/index.scss -o src/styles/main.scss -w"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +30,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "postcss-cli": "^6.1.2",
+    "tailwindcss": "^0.7.4"
+  }
 }
