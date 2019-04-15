@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MergeRequestList from './MergeRequestList';
 import { MergeRequestType } from './types/MergeRequest';
+import Navbar from './components/Navbar';
 
 interface Props {
 } 
@@ -38,8 +39,8 @@ class App extends Component<Props, State> {
 
     return (
       <div className="App">
-          <h1 className="mt-4 text-center">Gitlab Reviewer</h1>
-          <MergeRequestList mergeRequests={mergeRequests} />
+        <Navbar/>
+        <MergeRequestList mergeRequests={mergeRequests} />
       </div>
     );
   }

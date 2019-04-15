@@ -22,7 +22,7 @@ class MergeRequestList extends Component<Props, State> {
     );
 
     return (
-      <table className="w-screen mx-auto mt-6">
+      <table className="w-full mx-auto mt-6">
         <thead className="border-b-1 border-grey text-xl">
           <tr>
             <th>Title</th>
