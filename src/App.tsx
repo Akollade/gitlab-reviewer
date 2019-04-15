@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
 import MergeRequestList from './MergeRequestList';
 import { MergeRequestType } from './types/MergeRequest';
 
 interface Props {
-}
+} 
 
 interface State {
   mergeRequests: MergeRequestType[];
@@ -39,9 +38,8 @@ class App extends Component<Props, State> {
 
     return (
       <div className="App">
-        <h1>Gitlab Reviewer</h1>
-
-        <MergeRequestList mergeRequests={mergeRequests} />
+          <h1 className="mt-4 text-center">Gitlab Reviewer</h1>
+          <MergeRequestList mergeRequests={mergeRequests} />
       </div>
     );
   }

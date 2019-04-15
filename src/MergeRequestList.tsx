@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import MergeRequestItem from './MergeRequestItem';
 import { MergeRequestType } from './types/MergeRequest';
 
@@ -23,17 +22,17 @@ class MergeRequestList extends Component<Props, State> {
     );
 
     return (
-        <table>
-          <thead>
-            <tr>
+      <table className="w-screen mx-auto mt-6">
+        <thead className="border-b-1 border-grey text-xl">
+          <tr>
             <th>Title</th>
             <th>Author</th>
             <th>+1</th>
             <th>-1</th>
-            </tr>
-          </thead>
-          <tbody>{listItems}</tbody>
-        </table>
+          </tr>
+        </thead>
+        <tbody>{listItems}</tbody>
+      </table>
     );
   }
 }

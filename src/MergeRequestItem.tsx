@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { MergeRequestType } from './types/MergeRequest';
 
 interface Props {
