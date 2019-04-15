@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import MergeRequestList from './MergeRequestList';
+import MergeRequestList from './components/MergeRequest/MergeRequestList';
 import { MergeRequestType } from './types/MergeRequest';
 import Navbar from './components/Navbar';
 
