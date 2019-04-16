@@ -6192,6 +6192,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+tr {
+  td {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
