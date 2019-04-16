@@ -21,7 +21,7 @@ class MergeRequestList extends Component<Props> {
   ];
 
   public render() {
-    let { mergeRequests } = this.props ;
+    let { mergeRequests } = this.props;
 
     const listItems = mergeRequests.map((mergeRequest: MergeRequestType) =>
       <MergeRequestItem key={mergeRequest.id} mergeRequest={mergeRequest} />

@@ -12,7 +12,7 @@ class MergeRequestItem extends Component<Props> {
   };
 
   public render() {
-    let { mergeRequest } = this.props ;
+    let { mergeRequest } = this.props;
 
     return (
         <tr>
