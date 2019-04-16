@@ -6,8 +6,9 @@ interface Props {
 }
 
 class Pill extends Component<Props> {
-  private getStyleFromType(){
+  private getStyleFromType() {
     const { type } = this.props;
+    
     switch (type) {
         case "success":{
             return "bg-green hover:bg-green-dark text-white";

@@ -8,10 +8,7 @@ interface Props {
     mergeRequests: MergeRequestType[];
 }
 
-interface State {
-}
-
-class MergeRequestList extends Component<Props, State> {
+class MergeRequestList extends Component<Props> {
   public static defaultProps = {
     mergeRequests: []
   };

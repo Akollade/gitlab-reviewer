@@ -6,10 +6,7 @@ interface Props {
     mergeRequest: MergeRequestType;
 }
 
-interface State {
-}
-
-class MergeRequestItem extends Component<Props, State> {
+class MergeRequestItem extends Component<Props> {
   public static defaultProps = {
     mergeRequests: []
   };
@@ -19,7 +16,7 @@ class MergeRequestItem extends Component<Props, State> {
 
     return (
         <tr>
-          <td><a className="text-xl no-underline text-black" href={mergeRequest.web_url} target="blank">{mergeRequest.title}</a></td>
+          <td><a className="text-xl no-underline text-black" href={mergeRequest.web_url} target="_blank" rel="noopener noreferrer">{mergeRequest.title}</a></td>
           <td><img src={mergeRequest.author.avatar_url} alt={mergeRequest.author.name} className="border-2 border-grey h-10 w-10"/></td>
           <td><Pill text={mergeRequest.upvotes} type={mergeRequest.upvotes > 0 ? "success" : "disable"}/></td>
           <td><Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? "danger" : "disable"}/></td>
