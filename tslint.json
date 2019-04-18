@@ -2,8 +2,8 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
-        "tslint-config-prettier",
-        "tslint-react"
+        "tslint-react",
+        "tslint-config-prettier"
     ],
     "jsRules": {},
     "rules": {
@@ -19,15 +19,11 @@
         "jsx-boolean-value": false,
         "jsx-equals-spacing": false,
         "jsx-no-bind": true,
-        "jsx-no-lambda": true,
-        "jsx-no-multiline-js": false,
-        "jsx-wrap-multiline": true,        
+        "jsx-no-lambda": true, 
         "jsx-self-close": true,
-        "jsx-space-before-trailing-slash": true,
         "no-relative-imports": true,
         "no-var-requires": false,
-        "no-any": true,
-        "member-ordering": false
+        "no-any": false
     },
     "linterOptions": {
         "exclude": [
