@@ -15,13 +15,6 @@ class MergeRequestList extends Component<Props> {
     mergeRequests: []
   };
 
-  public tabs = [
-    'Title',
-    'Author',
-    <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />,
-    <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-dark" />
-  ];
-
   public render() {
     const { mergeRequests } = this.props;
 
@@ -34,11 +27,18 @@ class MergeRequestList extends Component<Props> {
         <table className="w-full">
           <thead className="text-2xl mb-5">
             <tr>
-              {this.tabs.map((tab, index) => (
-                <th key={index} className="py-4" align="left">
-                  {tab}
-                </th>
-              ))}
+              <th>
+                Title
+              </th>
+              <th>
+                Author
+              </th>
+              <th>
+                <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />
+              </th>
+              <th>
+                <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-dark" />
+              </th>
             </tr>
           </thead>
           <tbody>{listItems}</tbody>

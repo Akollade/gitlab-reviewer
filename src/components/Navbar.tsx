@@ -7,7 +7,7 @@ class Navbar extends Component {
     return (
       <nav className="flex items-center justify-between flex-wrap bg-blue-darkest p-6">
         <div className="text-white mr-6">
-          <a className="text-white no-underline" href="" onClick={() => window.location.reload()}>
+          <a className="text-white no-underline" href="" onClick={window.location.reload}>
             <h1 className="font-semibold text-3xl tracking-tight">GitLab Reviewer</h1>
           </a>
         </div>

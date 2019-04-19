@@ -5,20 +5,14 @@ import MergeRequestList from './components/MergeRequest/MergeRequestList';
 import Navbar from './components/Navbar';
 import { MergeRequestType } from './types/MergeRequest';
 
-interface Props {}
-
 interface State {
   mergeRequests: MergeRequestType[];
 }
 
-class App extends Component<Props, State> {
-  public constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      mergeRequests: []
-    };
-  }
+class App extends Component<{}, State> {
+  public state = {
+    mergeRequests: []
+  };
 
   public async componentDidMount() {
     const axiosInstance = axios.create({
