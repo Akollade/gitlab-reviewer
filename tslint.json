@@ -21,7 +21,7 @@
         "jsx-no-bind": true,
         "jsx-no-lambda": true, 
         "jsx-self-close": true,
-        "no-relative-imports": true,
+        "no-relative-imports": false,
         "no-var-requires": false,
         "member-ordering": false,
         "no-any": false
