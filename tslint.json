@@ -24,7 +24,7 @@
         "no-relative-imports": false,
         "no-var-requires": false,
         "member-ordering": false,
-        "no-any": false
+        "no-any": true
     },
     "linterOptions": {
         "exclude": [
