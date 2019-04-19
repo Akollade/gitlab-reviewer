@@ -28,7 +28,7 @@
     "watch:css": "postcss src/styles/index.scss -o src/styles/main.scss -w",
     "lint": "tslint --project .",
     "lint-check": "tslint-config-prettier-check ./tslint.json",
-    "prettier": "prettier-tslint fix"
+    "prettier": "prettier-tslint fix 'src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"
