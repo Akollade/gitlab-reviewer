@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
 import axios from 'axios';
-import MergeRequestList from './components/MergeRequest/MergeRequestList';
-import { MergeRequestType } from './types/MergeRequest';
-import Navbar from './components/Navbar';
+import React, { Component } from 'react';
 
-interface Props {
-} 
+import MergeRequestList from './components/MergeRequest/MergeRequestList';
+import Navbar from './components/Navbar';
+import { MergeRequestType } from './types/MergeRequest';
+
+interface Props {}
 
 interface State {
   mergeRequests: MergeRequestType[];
@@ -24,22 +24,22 @@ class App extends Component<Props, State> {
     const axiosInstance = axios.create({
       baseURL: process.env.REACT_APP_GITLAB_URL + '/api/v4',
       timeout: 5000,
-      headers: {'PRIVATE-TOKEN': process.env.REACT_APP_GITLAB_TOKEN}
+      headers: { 'PRIVATE-TOKEN': process.env.REACT_APP_GITLAB_TOKEN }
     });
 
-    let mergeRequestsResponse = await axiosInstance.get('/merge_requests?state=opened&scope=all&order_by=updated_at');
+    const mergeRequestsResponse = await axiosInstance.get('/merge_requests?state=opened&scope=all&order_by=updated_at');
 
     this.setState({
-      'mergeRequests': mergeRequestsResponse.data
+      mergeRequests: mergeRequestsResponse.data
     });
   }
 
   public render() {
-    let { mergeRequests } = this.state ;
+    const { mergeRequests } = this.state;
 
     return (
       <div className="App">
-        <Navbar/>
+        <Navbar />
         <MergeRequestList mergeRequests={mergeRequests} />
       </div>
     );
