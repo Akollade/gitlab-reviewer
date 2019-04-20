@@ -20,6 +20,10 @@ code {
 }
 
 tr {
+  th {
+    @apply .py-4 .text-left;
+  }
+  
   td {
     @apply .py-2;
   }
