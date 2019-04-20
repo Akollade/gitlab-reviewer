@@ -38,9 +38,8 @@ Then open `http://localhost:3000` in your browser.
 ### Inspiration
 
 Thanks :
-* [Hexanet/MergeRequestsCI](https://github.com/Hexanet/MergeRequestsCI)
-* [M6Web](https://github.com/M6Web) ([Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer))
-* [Jean-François Lépine](http://blog.lepine.pro/) ([Taylorisme de la qualité logicielle](http://lanyrd.com/2015/forumphp/sdwzzb/))
+* [TheRedDot/MergeRequestsCI](https://github.com/TheRedDot/MergeRequestsCI)
+* [M6Web](https://tech.m6web.fr/) ([Github Team Reviewer](https://github.com/M6Web/GithubTeamReviewer))
 
 ## License
 
