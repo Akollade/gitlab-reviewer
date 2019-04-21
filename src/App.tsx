@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
+import NoMatch from './pages/NoMatch';
 
 class App extends Component {
   public render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route path="/settings" component={Settings} />
+            <Route component={NoMatch} />
           </Switch>
         </Router>
       </div>
