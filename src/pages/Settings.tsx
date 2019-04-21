@@ -34,6 +34,7 @@ class Settings extends Component<RouteComponentProps, State> {
   public handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     event.preventDefault();
 
+
     this.setState({ [event.target.name]: event.target.value } as Pick<State, 'url' | 'privateToken' | 'refreshRate'>);
   }
 
@@ -87,7 +88,7 @@ class Settings extends Component<RouteComponentProps, State> {
             </label>
             <input
               className="w-4/5"
-              type="text"
+              type="number"
               name="refreshRate"
               defaultValue={refreshRate}
               onChange={this.handleChange}
