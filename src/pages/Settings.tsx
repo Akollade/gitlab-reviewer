@@ -27,6 +27,10 @@ class Settings extends Component<RouteComponentProps, State> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  public componentDidMount() {
+    document.title = 'GitLab Reviewer | Settings';
+  }
+
   public handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     event.preventDefault();
 
