@@ -30,16 +30,12 @@ export class GitLabApi {
   }
 }
 
-export function createGitLabApi(url?: string, privateToken?: string): GitLabApi {
+export function createGitLabApi(): GitLabApi {
+  const url = LocalStorage.getUrl();
+  const privateToken = LocalStorage.getPrivateToken();
+
   if (!url || !privateToken) {
-    const localStorageUrl = LocalStorage.getUrl();
-    const localStoragePrivateToken = LocalStorage.getPrivateToken();
-
-    if (!localStorageUrl || !localStoragePrivateToken) {
-      throw new Error('Url or Private Token not stored');
-    }
-
-    return new GitLabApi(localStorageUrl, localStoragePrivateToken);
+    throw new Error('Url or Private Token not stored');
   }
 
   return new GitLabApi(url, privateToken);

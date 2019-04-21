@@ -1,8 +1,7 @@
-import axios from 'axios';
 import React, { Component, FormEvent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { createGitLabApi } from '../services/GitLabApi';
+import { GitLabApi } from '../services/GitLabApi';
 import LocalStorage from '../services/LocalStorage';
 
 interface State {
@@ -42,7 +41,7 @@ class Settings extends Component<RouteComponentProps, State> {
     event.preventDefault();
     const { url, privateToken, refreshRate } = this.state;
 
-    const isAuthenticated = await createGitLabApi(url, privateToken).isAuthenticated();
+    const isAuthenticated = await new GitLabApi(url, privateToken).isAuthenticated();
 
     if (isAuthenticated) {
       LocalStorage.setUrl(url);
