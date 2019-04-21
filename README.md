@@ -21,10 +21,6 @@ $ cd gitlab-reviewer
 $ yarn
 ```
 
-### Configure
-
-Copy `.env` to `.env.local` and set your url and token.
-
 ## Run the server
 
 After configuration, you have to build the code and launch the server.

@@ -28,3 +28,7 @@ tr {
     @apply .py-2;
   }
 }
+
+input {
+  @apply .py-2 .px-2 .rounded .border-grey .border-solid .border-1;
+}

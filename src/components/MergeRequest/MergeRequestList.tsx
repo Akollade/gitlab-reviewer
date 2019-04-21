@@ -27,12 +27,8 @@ class MergeRequestList extends Component<Props> {
         <table className="w-full">
           <thead className="text-2xl mb-5">
             <tr>
-              <th>
-                Title
-              </th>
-              <th>
-                Author
-              </th>
+              <th>Title</th>
+              <th>Author</th>
               <th>
                 <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />
               </th>
