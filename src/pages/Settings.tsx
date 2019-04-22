@@ -65,7 +65,7 @@ class Settings extends Component<RouteComponentProps, State> {
             <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="url">
               GitLab url
             </label>
-            <input className="w-4/5" type="url" name="url" defaultValue={url} onChange={this.handleChange} required />
+            <input className="w-4/5" type="url" name="url" placeholder="https://gitlab.example.com" defaultValue={url} onChange={this.handleChange} required />
           </div>
           <div className="flex items-center mb-4">
             <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="token">
