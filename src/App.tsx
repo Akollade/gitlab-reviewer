@@ -1,40 +1,23 @@
-import axios from 'axios';
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import MergeRequestList from './components/MergeRequest/MergeRequestList';
 import Navbar from './components/Navbar';
-import { MergeRequestType } from './types/MergeRequest';
+import Dashboard from './pages/Dashboard';
+import NoMatch from './pages/NoMatch';
+import Settings from './pages/Settings';
 
-interface State {
-  mergeRequests: MergeRequestType[];
-}
-
-class App extends Component<{}, State> {
-  public state = {
-    mergeRequests: []
-  };
-
-  public async componentDidMount() {
-    const axiosInstance = axios.create({
-      baseURL: process.env.REACT_APP_GITLAB_URL + '/api/v4',
-      timeout: 5000,
-      headers: { 'PRIVATE-TOKEN': process.env.REACT_APP_GITLAB_TOKEN }
-    });
-
-    const mergeRequestsResponse = await axiosInstance.get('/merge_requests?state=opened&scope=all&order_by=updated_at');
-
-    this.setState({
-      mergeRequests: mergeRequestsResponse.data
-    });
-  }
-
+class App extends Component {
   public render() {
-    const { mergeRequests } = this.state;
-
     return (
       <div className="App">
-        <Navbar />
-        <MergeRequestList mergeRequests={mergeRequests} />
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/settings" component={Settings} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
       </div>
     );
   }

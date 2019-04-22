@@ -1,15 +1,19 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
   public render() {
     return (
       <nav className="flex items-center justify-between flex-wrap bg-blue-darkest p-6">
-        <div className="text-white mr-6">
-          <a className="text-white no-underline" href="" onClick={window.location.reload}>
-            <h1 className="font-semibold text-3xl tracking-tight">GitLab Reviewer</h1>
-          </a>
+        <div>
+          <Link className="text-white no-underline inline-block font-semibold text-3xl tracking-tight" to="/">
+            GitLab Reviewer
+          </Link>
+          <NavLink className="text-blue-light hover:text-white no-underline ml-6" to="/settings">
+            Settings
+          </NavLink>
         </div>
         <div>
           <a
