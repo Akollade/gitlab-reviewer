@@ -15,7 +15,7 @@ class Settings extends Component<RouteComponentProps, State> {
   public state = {
     url: LocalStorage.getUrl() || '',
     privateToken: LocalStorage.getPrivateToken() || '',
-    refreshRate: LocalStorage.getRefreshRateAsString(),
+    refreshRate: LocalStorage.getRefreshRate(),
     error: false
   };
 
@@ -32,7 +32,6 @@ class Settings extends Component<RouteComponentProps, State> {
 
   public handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     event.preventDefault();
-
 
     this.setState({ [event.target.name]: event.target.value } as Pick<State, 'url' | 'privateToken' | 'refreshRate'>);
   }

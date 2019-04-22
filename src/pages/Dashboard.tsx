@@ -45,7 +45,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
 
     this.intervalRef = window.setInterval(() => {
       this.fetchMergeRequests();
-    }, LocalStorage.getRefreshRate() * 60 * 1000);
+    }, LocalStorage.getRefreshRateAsNumber() * 60 * 1000);
   }
 
   public componentWillUnmount() {

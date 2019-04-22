@@ -15,13 +15,13 @@ class LocalStorage {
     return localStorage.setItem('url', url);
   }
 
-  public getRefreshRateAsString() {
-    return localStorage.getItem('refresh_rate') || '5';
-  }
-
-  public getRefreshRate(): number {
+  public getRefreshRateAsNumber(): number {
     const refreshRate = localStorage.getItem('refresh_rate');
     return refreshRate ? parseInt(refreshRate, 10) : 5;
+  }
+
+  public getRefreshRate(): string {
+    return localStorage.getItem('refresh_rate') || '5';
   }
 
   public setRefreshRate(refreshRate: string) {
