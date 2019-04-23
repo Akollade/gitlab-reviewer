@@ -6,14 +6,38 @@ import { MergeRequestType } from '../../types/MergeRequest';
 
 import MergeRequestItem from './MergeRequestItem';
 
+// see https://github.com/ejci/favico.js/issues/126
+const Favico = require('favico.js'); 
+
 interface Props {
   mergeRequests: MergeRequestType[];
 }
 
 class MergeRequestList extends Component<Props> {
+  private favicon: favicojs.Favico;
+
   public static defaultProps = {
     mergeRequests: []
   };
+
+  constructor(props: Props) {
+    super(props);
+
+    this.favicon = new Favico({
+        animation: 'fade'
+    });
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    if (this.props.mergeRequests.length !== prevProps.mergeRequests.length) {
+      this.favicon.badge(this.props.mergeRequests.length);
+    }
+  }
+
+
+  public componentWillUnmount() {
+    this.favicon.reset();
+  }
 
   public render() {
     const { mergeRequests } = this.props;
