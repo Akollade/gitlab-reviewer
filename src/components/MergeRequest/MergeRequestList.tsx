@@ -14,7 +14,7 @@ interface Props {
 }
 
 class MergeRequestList extends Component<Props> {
-  private favicon: any;
+  private favicon: favicojs.Favico;
 
   public static defaultProps = {
     mergeRequests: []
@@ -22,8 +22,6 @@ class MergeRequestList extends Component<Props> {
 
   constructor(props: Props) {
     super(props);
-
-    this.state = 0;
 
     this.favicon = new Favico({
         animation: 'fade'

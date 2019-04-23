@@ -44,6 +44,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/favico.js": "^0.0.28",
     "autoprefixer": "^9.5.1",
     "postcss-cli": "^6.1.2",
     "prettier": "^1.17.0",
