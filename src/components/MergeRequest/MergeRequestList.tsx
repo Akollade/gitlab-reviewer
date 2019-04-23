@@ -30,8 +30,10 @@ class MergeRequestList extends Component<Props> {
     });
   }
 
-  public componentDidUpdate() {
-    this.favicon.badge(this.props.mergeRequests.length);
+  public componentDidUpdate(prevProps: Props) {
+    if (this.props.mergeRequests.length !== prevProps.mergeRequests.length) {
+      this.favicon.badge(this.props.mergeRequests.length);
+    }
   }
 
 
