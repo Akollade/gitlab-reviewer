@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 class NoMatch extends Component<RouteComponentProps> {

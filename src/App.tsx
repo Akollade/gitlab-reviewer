@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Dashboard from './pages/Dashboard';
-import NoMatch from './pages/NoMatch';
-import Settings from './pages/Settings';
+import Navbar from 'components/Navbar';
+import Dashboard from 'pages/Dashboard';
+import NoMatch from 'pages/NoMatch';
+import Settings from 'pages/Settings';
 
 class App extends Component {
   public render() {

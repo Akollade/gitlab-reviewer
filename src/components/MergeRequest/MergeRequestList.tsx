@@ -2,9 +2,9 @@ import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 
-import { MergeRequestType } from '../../types/MergeRequest';
+import { MergeRequestType } from 'types/MergeRequest';
 
-import MergeRequestItem from './MergeRequestItem';
+import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 
 // see https://github.com/ejci/favico.js/issues/126
 const Favico = require('favico.js'); 

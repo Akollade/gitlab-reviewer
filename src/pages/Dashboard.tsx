@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import MergeRequestList from '../components/MergeRequest/MergeRequestList';
-import { createGitLabApi, GitLabApi } from '../services/GitLabApi';
-import LocalStorage from '../services/LocalStorage';
-import { MergeRequestType } from '../types/MergeRequest';
+import MergeRequestList from 'components/MergeRequest/MergeRequestList';
+import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
+import LocalStorage from 'services/LocalStorage';
+import { MergeRequestType } from 'types/MergeRequest';
 
 interface State {
   mergeRequests: MergeRequestType[];

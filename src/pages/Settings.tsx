@@ -1,8 +1,8 @@
 import React, { Component, FormEvent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { GitLabApi } from '../services/GitLabApi';
-import LocalStorage from '../services/LocalStorage';
+import { GitLabApi } from 'services/GitLabApi';
+import LocalStorage from 'services/LocalStorage';
 
 interface State {
   url: string;
