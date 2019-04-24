@@ -40,6 +40,10 @@ class Dashboard extends Component<RouteComponentProps, State> {
   public componentDidMount() {
     document.title = 'GitLab Reviewer | Dashboard';
 
+    if (!this.gitLabApi) {
+      return;
+    }
+
     this.fetchMergeRequests();
 
     this.intervalRef = window.setInterval(() => {
