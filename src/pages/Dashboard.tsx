@@ -1,10 +1,9 @@
+import MergeRequestList from 'components/MergeRequest/MergeRequestList';
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-
-import MergeRequestList from '../components/MergeRequest/MergeRequestList';
-import { createGitLabApi, GitLabApi } from '../services/GitLabApi';
-import LocalStorage from '../services/LocalStorage';
-import { MergeRequestType } from '../types/MergeRequest';
+import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
+import LocalStorage from 'services/LocalStorage';
+import { MergeRequestType } from 'types/MergeRequest';
 
 interface State {
   mergeRequests: MergeRequestType[];
@@ -40,6 +39,10 @@ class Dashboard extends Component<RouteComponentProps, State> {
 
   public componentDidMount() {
     document.title = 'GitLab Reviewer | Dashboard';
+
+    if (!this.gitLabApi) {
+      return;
+    }
 
     this.fetchMergeRequests();
 

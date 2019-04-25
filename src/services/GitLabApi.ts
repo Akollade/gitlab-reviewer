@@ -1,8 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
-
-import { MergeRequestType } from '../types/MergeRequest';
-
-import LocalStorage from './LocalStorage';
+import LocalStorage from 'services/LocalStorage';
+import { MergeRequestType } from 'types/MergeRequest';
 
 export class GitLabApi {
   private axios: AxiosInstance;

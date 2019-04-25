@@ -1,7 +1,6 @@
+import Pill from 'components/Pill';
 import React, { Component } from 'react';
-
-import { MergeRequestType } from '../../types/MergeRequest';
-import Pill from '../Pill';
+import { MergeRequestType } from 'types/MergeRequest';
 
 interface Props {
   mergeRequest: MergeRequestType;

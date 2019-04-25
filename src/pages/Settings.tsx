@@ -1,8 +1,7 @@
 import React, { Component, FormEvent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-
-import { GitLabApi } from '../services/GitLabApi';
-import LocalStorage from '../services/LocalStorage';
+import { GitLabApi } from 'services/GitLabApi';
+import LocalStorage from 'services/LocalStorage';
 
 interface State {
   url: string;
@@ -65,7 +64,15 @@ class Settings extends Component<RouteComponentProps, State> {
             <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="url">
               GitLab url
             </label>
-            <input className="w-4/5" type="url" name="url" placeholder="https://gitlab.example.com" defaultValue={url} onChange={this.handleChange} required />
+            <input
+              className="w-4/5"
+              type="url"
+              name="url"
+              placeholder="https://gitlab.example.com"
+              defaultValue={url}
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="flex items-center mb-4">
             <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="token">
@@ -102,8 +109,8 @@ class Settings extends Component<RouteComponentProps, State> {
               />
               {error && (
                 <div className="mt-4 border-red border-1 border-solid rounded py-2 px-4 bg-white">
-                  <p>Authentication failed 😞.</p>
-                  <p>Check your url and token 🙂.</p>
+                  <p>Authentication failed <span role="img" aria-label="Disappointed Face">😞</span>.</p>
+                  <p>Check your url and token <span role="img" aria-label="Slightly Smiling">🙂</span>.</p>
                 </div>
               )}
             </div>

@@ -1,13 +1,11 @@
 import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 import React, { Component } from 'react';
-
-import { MergeRequestType } from '../../types/MergeRequest';
-
-import MergeRequestItem from './MergeRequestItem';
+import { MergeRequestType } from 'types/MergeRequest';
 
 // see https://github.com/ejci/favico.js/issues/126
-const Favico = require('favico.js'); 
+const Favico = require('favico.js');
 
 interface Props {
   mergeRequests: MergeRequestType[];
@@ -24,7 +22,7 @@ class MergeRequestList extends Component<Props> {
     super(props);
 
     this.favicon = new Favico({
-        animation: 'fade'
+      animation: 'fade'
     });
   }
 
@@ -33,7 +31,6 @@ class MergeRequestList extends Component<Props> {
       this.favicon.badge(this.props.mergeRequests.length);
     }
   }
-
 
   public componentWillUnmount() {
     this.favicon.reset();
