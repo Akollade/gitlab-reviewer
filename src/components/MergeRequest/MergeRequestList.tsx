@@ -21,21 +21,24 @@ class MergeRequestList extends Component<Props> {
     ));
 
     return (
-      <table className="w-full">
-        <thead className="text-2xl">
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>
-              <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />
-            </th>
-            <th>
-              <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-dark" />
-            </th>
-          </tr>
-        </thead>
-        <tbody>{listItems}</tbody>
-      </table>
+      <div className="pl-3">
+        <table className="w-full">
+          <thead className="text-2xl">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>
+                <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />
+              </th>
+              <th>
+                <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-dark" />
+              </th>
+            </tr>
+          </thead>
+          <tbody>{listItems}</tbody>
+        </table>
+      </div>
+
     );
   }
 }
