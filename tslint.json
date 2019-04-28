@@ -19,7 +19,7 @@
     "jsx-boolean-value": false,
     "jsx-equals-spacing": false,
     "jsx-no-bind": true,
-    "jsx-no-lambda": true,
+    "jsx-no-lambda": false,
     "jsx-self-close": true,
     "no-relative-imports": true,
     "no-var-requires": false,
