@@ -1,9 +1,9 @@
 import Pill from 'components/Pill';
 import React, { Component } from 'react';
-import { MergeRequestType } from 'types/MergeRequest';
+import { MergeRequest } from 'types/FormattedTypes';
 
 interface Props {
-  mergeRequest: MergeRequestType;
+  mergeRequest: MergeRequest;
 }
 
 class MergeRequestItem extends Component<Props> {
