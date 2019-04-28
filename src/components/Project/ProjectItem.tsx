@@ -9,13 +9,13 @@ interface Props {
 }
 
 interface State {
-  dropDownOpened: boolean
+  dropDownOpened: boolean;
 }
 
 class ProjectItem extends Component<Props, State> {
   public state: State = {
     dropDownOpened: true
-  }
+  };
 
   public render() {
     const { project } = this.props;

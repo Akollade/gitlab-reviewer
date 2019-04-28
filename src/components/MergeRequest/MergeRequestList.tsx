@@ -38,7 +38,6 @@ class MergeRequestList extends Component<Props> {
           <tbody>{listItems}</tbody>
         </table>
       </div>
-
     );
   }
 }

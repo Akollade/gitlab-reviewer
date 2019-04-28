@@ -1,8 +1,6 @@
-//import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ProjectItem from 'components/Project/ProjectItem';
 import React, { Component } from 'react';
 import { Project } from 'types/FormattedTypes';
-import ProjectItem from 'components/Project/ProjectItem';
 
 interface Props {
   projects: Project[];
@@ -16,15 +14,9 @@ class ProjectList extends Component<Props> {
   public render() {
     const { projects } = this.props;
 
-    const listItems = projects.map((project: Project) => (
-      <ProjectItem key={project.id} project={project} />
-    ));
+    const listItems = projects.map((project: Project) => <ProjectItem key={project.id} project={project} />);
 
-    return (
-      <div>
-        {listItems}
-      </div>
-    );
+    return <div>{listItems}</div>;
   }
 }
 

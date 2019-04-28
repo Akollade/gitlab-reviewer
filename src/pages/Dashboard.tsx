@@ -1,9 +1,10 @@
+import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
-import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
+
 import ProjectList from '../components/Project/ProjectList';
 
 interface State {
@@ -61,14 +62,15 @@ class Dashboard extends Component<RouteComponentProps, State> {
   public render() {
     const { projects } = this.state;
 
-    if (projects.length === 0) return null;
+    if (projects.length === 0) { 
+      return null; 
+    }
 
     return (
       <React.Fragment>
         <ProjectList projects={projects} />
         <FavicoMergeRequestsCounter projects={projects} />
       </React.Fragment>
-
     );
   }
 }

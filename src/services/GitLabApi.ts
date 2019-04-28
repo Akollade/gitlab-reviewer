@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import LocalStorage from 'services/LocalStorage';
-import { MergeRequestType, ProjectType } from 'types/GitLabTypes';
 import { Project } from 'types/FormattedTypes';
+import { MergeRequestType, ProjectType } from 'types/GitLabTypes';
 
 export class GitLabApi {
   private axios: AxiosInstance;
@@ -25,22 +25,21 @@ export class GitLabApi {
   }
 
   public async getBundledProjects(): Promise<Project[]> {
+    const [projects, mergeRequests] = await Promise.all([this.getProjects(), this.getMergeRequests()]);
 
-    let [projects, mergeRequests] = await Promise.all([
-      this.getProjects(),
-      this.getMergeRequests()
-    ]);
+    const bundledProjects: Project[] = projects
+      .filter((project: ProjectType) => {
+        return mergeRequests.find((mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id);
+      })
+      .map(
+        (project: ProjectType): Project => {
+          const mergeRequestsForProject = mergeRequests.filter(
+            (mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id
+          );
 
-    const bundledProjects: Project[] = projects.filter((project: ProjectType) => {
-
-      return mergeRequests.find((mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id);
-
-    }).map((project: ProjectType): Project => {
-
-      let mergeRequestsForProject = mergeRequests.filter((mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id);
-
-      return { ...project, mergeRequests: mergeRequestsForProject };
-    });
+          return { ...project, mergeRequests: mergeRequestsForProject };
+        }
+      );
 
     return bundledProjects;
   }

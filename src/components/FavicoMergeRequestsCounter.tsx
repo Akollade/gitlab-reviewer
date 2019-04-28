@@ -15,17 +15,17 @@ class FavicoMergeRequestsCounter extends Component<Props> {
     return projects.reduce<number>(
       (counter: number, project: Project): number => counter + project.mergeRequests.length,
       0
-    )
+    );
   }
 
   public componentDidMount() {
-    let mergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(this.props.projects);
+    const mergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(this.props.projects);
     this.favicon.badge(mergeRequestsLength);
   }
 
   public componentDidUpdate({ projects: prevProjects }: Props) {
-    let oldMergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(prevProjects);
-    let newMergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(this.props.projects);
+    const oldMergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(prevProjects);
+    const newMergeRequestsLength = FavicoMergeRequestsCounter.getMergeRequestsCount(this.props.projects);
 
     if (newMergeRequestsLength !== oldMergeRequestsLength) {
       this.favicon.badge(newMergeRequestsLength);
