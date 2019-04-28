@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 class Navbar extends Component {
   public render() {
     return (
-      <nav className="flex items-center justify-between flex-wrap bg-blue-darkest p-6">
+      <nav className="flex items-center justify-between flex-wrap bg-blue-darkest px-6 py-4">
         <div>
           <Link className="text-white no-underline inline-block font-semibold text-3xl tracking-tight" to="/">
             GitLab Reviewer
