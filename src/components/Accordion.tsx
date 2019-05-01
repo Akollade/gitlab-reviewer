@@ -22,9 +22,8 @@ class Accordion extends Component<Props, State> {
     this.toggleAccordion = this.toggleAccordion.bind(this);
   }
 
-
   public toggleAccordion() {
-    this.setState({ accordionOpened: !this.state.accordionOpened })
+    this.setState({ accordionOpened: !this.state.accordionOpened });
   }
 
   public render() {

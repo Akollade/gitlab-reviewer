@@ -41,6 +41,4 @@ class FavicoMergeRequestsCounter extends Component<Props> {
   }
 }
 
-
-
 export default FavicoMergeRequestsCounter;
