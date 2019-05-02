@@ -19,29 +19,40 @@ export class GitLabApi {
     return mergeRequestsResponse.data;
   }
 
-  public async getProjects(): Promise<ProjectType[]> {
-    const mergeRequestsResponse = await this.axios.get('/projects?simple=true');
+  public async getProject(projectId: number): Promise<ProjectType> {
+    const mergeRequestsResponse = await this.axios.get('/projects/' + projectId + '?simple=true');
     return mergeRequestsResponse.data;
   }
 
   public async getBundledProjects(): Promise<Project[]> {
-    const [projects, mergeRequests] = await Promise.all([this.getProjects(), this.getMergeRequests()]);
+    const mergeRequests = await this.getMergeRequests();
+    const projects = await this.getProjectsForMergeRequests(mergeRequests);
 
-    const bundledProjects: Project[] = projects
-      .filter((project: ProjectType) => {
-        return mergeRequests.find((mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id);
-      })
-      .map(
-        (project: ProjectType): Project => {
-          const mergeRequestsForProject = mergeRequests.filter(
-            (mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id
-          );
+    const bundledProjects: Project[] = projects.map(
+      (project: ProjectType): Project => {
+        const mergeRequestsForProject = mergeRequests.filter(
+          (mergeRequest: MergeRequestType) => mergeRequest.project_id === project.id
+        );
 
-          return { ...project, mergeRequests: mergeRequestsForProject };
-        }
-      );
+        return { ...project, mergeRequests: mergeRequestsForProject };
+      }
+    );
 
     return bundledProjects;
+  }
+
+  private async getProjectsForMergeRequests(mergeRequests: MergeRequestType[]): Promise<ProjectType[]> {
+    const projectsIds: number[] = [];
+
+    mergeRequests.forEach((mergeRequest: MergeRequestType) => {
+      if (projectsIds.indexOf(mergeRequest.project_id) === -1) {
+        projectsIds.push(mergeRequest.project_id);
+      }
+    });
+
+    const projectsFetchPromises = projectsIds.map((projectId: number) => this.getProject(projectId));
+
+    return await Promise.all(projectsFetchPromises);
   }
 
   public async isAuthenticated(): Promise<boolean> {
