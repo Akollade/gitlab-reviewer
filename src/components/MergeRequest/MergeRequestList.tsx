@@ -2,51 +2,28 @@ import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 import React, { Component } from 'react';
-import { MergeRequestType } from 'types/MergeRequest';
-
-// see https://github.com/ejci/favico.js/issues/126
-const Favico = require('favico.js');
+import { MergeRequest } from 'types/FormattedTypes';
 
 interface Props {
-  mergeRequests: MergeRequestType[];
+  mergeRequests: MergeRequest[];
 }
 
 class MergeRequestList extends Component<Props> {
-  private favicon: favicojs.Favico;
-
-  public static defaultProps = {
+  public static defaultProps: Props = {
     mergeRequests: []
   };
-
-  constructor(props: Props) {
-    super(props);
-
-    this.favicon = new Favico({
-      animation: 'fade'
-    });
-  }
-
-  public componentDidUpdate(prevProps: Props) {
-    if (this.props.mergeRequests.length !== prevProps.mergeRequests.length) {
-      this.favicon.badge(this.props.mergeRequests.length);
-    }
-  }
-
-  public componentWillUnmount() {
-    this.favicon.reset();
-  }
 
   public render() {
     const { mergeRequests } = this.props;
 
-    const listItems = mergeRequests.map((mergeRequest: MergeRequestType) => (
+    const listItems = mergeRequests.map((mergeRequest: MergeRequest) => (
       <MergeRequestItem key={mergeRequest.id} mergeRequest={mergeRequest} />
     ));
 
     return (
-      <div className="ml-4">
+      <div className="pl-3">
         <table className="w-full">
-          <thead className="text-2xl mb-5">
+          <thead className="text-2xl">
             <tr>
               <th>Title</th>
               <th>Author</th>

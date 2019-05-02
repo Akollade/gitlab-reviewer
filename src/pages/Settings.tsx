@@ -109,8 +109,20 @@ class Settings extends Component<RouteComponentProps, State> {
               />
               {error && (
                 <div className="mt-4 border-red border-1 border-solid rounded py-2 px-4 bg-white">
-                  <p>Authentication failed <span role="img" aria-label="Disappointed Face">😞</span>.</p>
-                  <p>Check your url and token <span role="img" aria-label="Slightly Smiling">🙂</span>.</p>
+                  <p>
+                    Authentication failed{' '}
+                    <span role="img" aria-label="Disappointed Face">
+                      😞
+                    </span>
+                    .
+                  </p>
+                  <p>
+                    Check your url and token{' '}
+                    <span role="img" aria-label="Slightly Smiling">
+                      🙂
+                    </span>
+                    .
+                  </p>
                 </div>
               )}
             </div>

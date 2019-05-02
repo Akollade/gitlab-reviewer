@@ -1,20 +1,21 @@
-import MergeRequestList from 'components/MergeRequest/MergeRequestList';
+import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
+import ProjectList from 'components/Project/ProjectList';
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
-import { MergeRequestType } from 'types/MergeRequest';
+import { Project } from 'types/FormattedTypes';
 
 interface State {
-  mergeRequests: MergeRequestType[];
+  projects: Project[];
 }
 
 class Dashboard extends Component<RouteComponentProps, State> {
   private gitLabApi!: GitLabApi;
   private intervalRef: number | null;
 
-  public state = {
-    mergeRequests: []
+  public state: State = {
+    projects: []
   };
 
   constructor(props: RouteComponentProps) {
@@ -29,11 +30,11 @@ class Dashboard extends Component<RouteComponentProps, State> {
     }
   }
 
-  public async fetchMergeRequests() {
-    const mergeRequests = await this.gitLabApi.getMergeRequests();
+  public async fetchProjects() {
+    const projects = await this.gitLabApi.getBundledProjects();
 
     this.setState({
-      mergeRequests
+      projects
     });
   }
 
@@ -44,10 +45,10 @@ class Dashboard extends Component<RouteComponentProps, State> {
       return;
     }
 
-    this.fetchMergeRequests();
+    this.fetchProjects();
 
     this.intervalRef = window.setInterval(() => {
-      this.fetchMergeRequests();
+      this.fetchProjects();
     }, LocalStorage.getRefreshRateAsNumber() * 60 * 1000);
   }
 
@@ -58,9 +59,18 @@ class Dashboard extends Component<RouteComponentProps, State> {
   }
 
   public render() {
-    const { mergeRequests } = this.state;
+    const { projects } = this.state;
 
-    return <MergeRequestList mergeRequests={mergeRequests} />;
+    if (projects.length === 0) {
+      return null;
+    }
+
+    return (
+      <React.Fragment>
+        <ProjectList projects={projects} />
+        <FavicoMergeRequestsCounter projects={projects} />
+      </React.Fragment>
+    );
   }
 }
 
