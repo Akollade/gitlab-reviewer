@@ -29,7 +29,9 @@ class Pill extends Component<Props> {
     const { text } = this.props;
 
     return (
-      <div className={'font-bold h-8 w-8 rounded-full inline-flex items-center justify-center ' + this.getStyleFromType()}>
+      <div
+        className={'font-bold h-8 w-8 rounded-full inline-flex items-center justify-center ' + this.getStyleFromType()}
+      >
         <p>{text}</p>
       </div>
     );
