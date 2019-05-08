@@ -26,11 +26,11 @@ class MergeRequestList extends Component<Props> {
           <thead className="text-2xl">
             <tr>
               <th>Title</th>
-              <th>Author</th>
-              <th>
+              <th className="w-32 text-center">Author</th>
+              <th className="w-32 text-center">
                 <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-dark" />
               </th>
-              <th>
+              <th className="w-32 text-center">
                 <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-dark" />
               </th>
             </tr>
