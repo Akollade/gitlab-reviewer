@@ -26,17 +26,17 @@ class MergeRequestItem extends Component<Props> {
             {mergeRequest.title}
           </a>
         </td>
-        <td>
+        <td className="w-32 text-center">
           <img
             src={mergeRequest.author.avatar_url}
             alt={mergeRequest.author.name}
             className="border-2 border-grey h-10 w-10"
           />
         </td>
-        <td>
+        <td className="w-32 text-center">
           <Pill text={mergeRequest.upvotes} type={mergeRequest.upvotes > 0 ? 'success' : 'disable'} />
         </td>
-        <td>
+        <td className="w-32 text-center">
           <Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? 'danger' : 'disable'} />
         </td>
       </tr>
