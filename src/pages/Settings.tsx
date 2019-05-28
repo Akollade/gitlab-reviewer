@@ -56,8 +56,8 @@ class Settings extends Component<RouteComponentProps, State> {
     const { url, privateToken, refreshRate, error } = this.state;
 
     return (
-      <div className="container mt-4 w-5/6">
-        <h1>Settings</h1>
+      <div className="container mt-4 w-5/6 mx-auto">
+        <h1 className="text-3xl font-semibold">Settings</h1>
 
         <form className="mt-6 flex-col justify-center" onSubmit={this.handleSubmit}>
           <div className="flex items-center mb-4">
@@ -103,12 +103,12 @@ class Settings extends Component<RouteComponentProps, State> {
             <div className="w-1/2 mr-6" />
             <div className="w-4/5 flex-col">
               <input
-                className="py-2 px-6 bg-blue text-white hover:bg-white hover:text-blue cursor-pointer"
+                className="py-2 px-6 bg-blue-500 text-white hover:bg-white hover:text-blue-500 cursor-pointer"
                 type="submit"
                 value="Save"
               />
               {error && (
-                <div className="mt-4 border-red border-1 border-solid rounded py-2 px-4 bg-white">
+                <div className="mt-4 border-red-500 border-1 border-solid rounded py-2 px-4 bg-white">
                   <p>
                     Authentication failed{' '}
                     <span role="img" aria-label="Disappointed Face">
