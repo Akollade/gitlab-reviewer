@@ -9,10 +9,9 @@ class Navbar extends Component {
           <Link className="text-white no-underline inline-block font-semibold text-3xl tracking-tight" to="/">
             GitLab Reviewer
           </Link>
-
         </div>
         <div>
-        <NavLink className="text-blue-light hover:text-white no-underline ml-6" to="/settings">
+          <NavLink className="text-blue-light hover:text-white no-underline ml-6" to="/settings">
             Settings
           </NavLink>
         </div>
