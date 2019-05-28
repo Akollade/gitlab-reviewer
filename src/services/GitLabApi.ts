@@ -20,8 +20,8 @@ export class GitLabApi {
   }
 
   public async getProject(projectId: number): Promise<ProjectType> {
-    const mergeRequestsResponse = await this.axios.get('/projects/' + projectId + '?simple=true');
-    return mergeRequestsResponse.data;
+    const projectResponse = await this.axios.get('/projects/' + projectId + '?simple=true');
+    return projectResponse.data;
   }
 
   public async getBundledProjects(): Promise<Project[]> {
