@@ -1,6 +1,6 @@
 import { MergeRequestType, ProjectType } from 'types/GitLabTypes';
 
-export interface MergeRequest extends MergeRequestType {}
+export type MergeRequest = MergeRequestType;
 
 export interface Project extends ProjectType {
   mergeRequests: MergeRequest[];
