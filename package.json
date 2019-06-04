@@ -45,7 +45,7 @@
   ],
   "devDependencies": {
     "@types/favico.js": "^0.0.28",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.0",
     "postcss-cli": "^6.1.2",
     "prettier": "^1.17.1",
     "prettier-tslint": "^0.4.2",
