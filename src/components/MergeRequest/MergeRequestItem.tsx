@@ -26,11 +26,11 @@ class MergeRequestItem extends Component<Props> {
             {mergeRequest.title}
           </a>
         </td>
-        <td className="w-32 text-center">
+        <td className="w-32 flex justify-center">
           <img
             src={mergeRequest.author.avatar_url}
             alt={mergeRequest.author.name}
-            className="border-2 border-grey h-10 w-10"
+            className="border-2 border-gray-500 h-10 w-10"
           />
         </td>
         <td className="w-32 text-center">

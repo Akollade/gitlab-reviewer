@@ -11,16 +11,16 @@ class Pill extends Component<Props> {
 
     switch (type) {
       case 'success': {
-        return 'bg-green hover:bg-green-dark text-white';
+        return 'bg-green-500 hover:bg-green-600 text-white';
       }
       case 'danger': {
-        return 'bg-red hover:bg-red-dark text-white';
+        return 'bg-red-500 hover:bg-red-600 text-white';
       }
       case 'disable': {
-        return 'bg-grey hover:bg-grey-dark text-white';
+        return 'bg-gray-500 hover:bg-grey-600 text-white';
       }
       default: {
-        return 'bg-grey hover:bg-grey-dark text-white';
+        return 'bg-gray-500 hover:bg-grey-600 text-white';
       }
     }
   }

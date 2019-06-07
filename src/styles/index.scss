@@ -1,4 +1,4 @@
-@tailwind preflight;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -30,5 +30,5 @@ tr {
 }
 
 input {
-  @apply .py-2 .px-2 .rounded .border-grey .border-solid .border-1;
+  @apply .py-2 .px-2 .rounded .border-gray-500 .border-solid .border;
 }
