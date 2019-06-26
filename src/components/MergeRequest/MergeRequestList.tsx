@@ -33,6 +33,7 @@ class MergeRequestList extends Component<Props> {
               <th className="w-32 text-center">
                 <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-600" />
               </th>
+              <th className="w-32 text-center">CI</th>
             </tr>
           </thead>
           <tbody>{listItems}</tbody>
