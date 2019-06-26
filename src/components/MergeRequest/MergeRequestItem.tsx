@@ -1,5 +1,6 @@
 import Pill from 'components/Pill';
 import React, { Component } from 'react';
+import Emojify from 'react-emojione';
 import { MergeRequest } from 'types/FormattedTypes';
 
 interface Props {
@@ -23,7 +24,7 @@ class MergeRequestItem extends Component<Props> {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {mergeRequest.title}
+            <Emojify>{mergeRequest.title}</Emojify>
           </a>
         </td>
         <td className="w-32 flex justify-center">
