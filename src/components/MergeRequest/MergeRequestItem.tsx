@@ -1,7 +1,7 @@
 import Pill from 'components/Pill';
 import React, { Component } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
-import { PipelineStatus } from 'types/GitLabTypes';
+import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 
 interface Props {
   mergeRequest: MergeRequest;
@@ -11,18 +11,6 @@ class MergeRequestItem extends Component<Props> {
   public static defaultProps = {
     mergeRequests: []
   };
-
-  private getPipelineClass(pipelineStatus: PipelineStatus) {
-    if (pipelineStatus === 'success') {
-      return 'text-green-600';
-    }
-
-    if (pipelineStatus === 'failed') {
-      return 'text-red-600';
-    }
-
-    return 'text-gray-600';
-  }
 
   public render() {
     const { mergeRequest } = this.props;
@@ -52,10 +40,8 @@ class MergeRequestItem extends Component<Props> {
         <td className="w-32 text-center">
           <Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? 'danger' : 'disable'} />
         </td>
-        <td className={'w-32 text-center ' + this.getPipelineClass(mergeRequest.pipeline.status)}>
-          <a target="_blank" rel="noopener noreferrer" href={mergeRequest.pipeline.web_url}>
-            {mergeRequest.pipeline.status}
-          </a>
+        <td className="w-32 text-center">
+          <PipelineStatusButton pipeline={mergeRequest.pipeline}></PipelineStatusButton>
         </td>
       </tr>
     );
