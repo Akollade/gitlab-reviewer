@@ -31,7 +31,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
   }
 
   public async fetchProjects() {
-    const projects = await this.gitLabApi.getBundledProjects();
+    const projects = await this.gitLabApi.getProjectsWithMergeRequests();
 
     this.setState({
       projects

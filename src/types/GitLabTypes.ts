@@ -23,9 +23,26 @@ interface Milestone {
   web_url: string;
 }
 
-type MergeRequesState = 'opened' | 'closed' | 'locked' | 'merged';
+type PipelineStatus = 'running' | 'pending' | 'success' | 'failed' | 'canceled' | 'skipped';
+export interface Pipeline {
+  web_url: string;
+  status: PipelineStatus;
+};
 
+type MergeRequesState = 'opened' | 'closed' | 'locked' | 'merged';
 type MergeRequestStatus = 'can_be_merged' | 'unchecked';
+
+export interface MergeRequestSimpleType {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description: string;
+  state: MergeRequestStatus;
+  created_at: string;
+  updated_at: string;
+  web_url: string;
+}
 
 export interface MergeRequestType {
   id: number;
@@ -70,6 +87,7 @@ export interface MergeRequestType {
   };
   squash: boolean;
   approvals_before_merge: number | null;
+  pipeline: Pipeline;
 }
 
 export interface ProjectType {

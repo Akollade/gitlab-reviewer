@@ -1,3 +1,4 @@
+import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
 import React, { Component } from 'react';
 import Emojify from 'react-emojione';
@@ -39,6 +40,9 @@ class MergeRequestItem extends Component<Props> {
         </td>
         <td className="w-32 text-center">
           <Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? 'danger' : 'disable'} />
+        </td>
+        <td className="w-32 text-center">
+          <PipelineStatusButton pipeline={mergeRequest.pipeline}/>
         </td>
       </tr>
     );

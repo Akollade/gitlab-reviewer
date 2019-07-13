@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
-import { MergeRequestType, ProjectType } from 'types/GitLabTypes';
+import { MergeRequestSimpleType, MergeRequestType, ProjectType } from 'types/GitLabTypes';
 
 export class GitLabApi {
   private axios: AxiosInstance;
@@ -15,16 +15,33 @@ export class GitLabApi {
   }
 
   public async getMergeRequests(): Promise<MergeRequestType[]> {
-    const mergeRequestsResponse = await this.axios.get('/merge_requests?state=opened&scope=all&order_by=updated_at');
-    return mergeRequestsResponse.data;
+    const mergeRequestsResponse = await this.axios.get(
+      '/merge_requests?state=opened&scope=all&order_by=updated_at&view=simple'
+    );
+    return await this.getDetailedMergeRequests(mergeRequestsResponse.data);
   }
 
-  public async getProject(projectId: number): Promise<ProjectType> {
+  private async getMergeRequest(projectId: number, mergeRequestIid: number): Promise<MergeRequestType> {
+    const mergeRequestResponse = await this.axios.get('/projects/' + projectId + '/merge_requests/' + mergeRequestIid);
+    return mergeRequestResponse.data;
+  }
+
+  private async getDetailedMergeRequests(mergeRequests: MergeRequestSimpleType[]): Promise<MergeRequestType[]> {
+    const mergeRequestsFetchPromises: Array<Promise<MergeRequestType>> = [];
+
+    mergeRequests.forEach((mergeRequest: MergeRequestSimpleType) => {
+      mergeRequestsFetchPromises.push(this.getMergeRequest(mergeRequest.project_id, mergeRequest.iid));
+    });
+
+    return await Promise.all(mergeRequestsFetchPromises);
+  }
+
+  private async getProject(projectId: number): Promise<ProjectType> {
     const projectResponse = await this.axios.get('/projects/' + projectId + '?simple=true');
     return projectResponse.data;
   }
 
-  public async getBundledProjects(): Promise<Project[]> {
+  public async getProjectsWithMergeRequests(): Promise<Project[]> {
     const mergeRequests = await this.getMergeRequests();
     const projects = await this.getProjectsForMergeRequests(mergeRequests);
 
