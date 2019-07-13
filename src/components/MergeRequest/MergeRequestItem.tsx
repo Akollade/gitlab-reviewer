@@ -1,7 +1,7 @@
+import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
 import React, { Component } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
-import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 
 interface Props {
   mergeRequest: MergeRequest;
@@ -41,7 +41,7 @@ class MergeRequestItem extends Component<Props> {
           <Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? 'danger' : 'disable'} />
         </td>
         <td className="w-32 text-center">
-          <PipelineStatusButton pipeline={mergeRequest.pipeline}></PipelineStatusButton>
+          <PipelineStatusButton pipeline={mergeRequest.pipeline}/>
         </td>
       </tr>
     );
