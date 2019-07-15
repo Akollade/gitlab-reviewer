@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Pipeline } from 'types/GitLabTypes';
 
 interface Props {
-  pipeline: Pipeline;
+  pipeline: Pipeline | null;
 }
 
 class PipelineStatusButton extends Component<Props> {
   private getStyleFromStatus() {
     const { pipeline } = this.props;
+
+    if (pipeline === null) {
+      return '';
+    }
 
     switch (pipeline.status) {
       case 'success': {
@@ -25,6 +29,10 @@ class PipelineStatusButton extends Component<Props> {
   public render() {
     const { pipeline } = this.props;
 
+    if (pipeline === null) {
+      return;
+    }
+
     return (
       <a
         className={'text-white p-2 rounded shadow font-bold ' + this.getStyleFromStatus()}
@@ -32,7 +40,7 @@ class PipelineStatusButton extends Component<Props> {
         rel="noopener noreferrer"
         href={pipeline.web_url}
       >
-        { pipeline.status }
+        {pipeline.status}
       </a>
     );
   }
