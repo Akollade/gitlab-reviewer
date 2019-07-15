@@ -30,7 +30,7 @@ class PipelineStatusButton extends Component<Props> {
     const { pipeline } = this.props;
 
     if (pipeline === null) {
-      return;
+      return null;
     }
 
     return (
