@@ -16,8 +16,8 @@ class LocalStorage {
   }
 
   public getRefreshRateAsNumber(): number {
-    const refreshRate = localStorage.getItem('refresh_rate');
-    return refreshRate ? parseInt(refreshRate, 10) : 5;
+    const refreshRate = this.getRefreshRate();
+    return parseInt(refreshRate, 10);
   }
 
   public getRefreshRate(): string {
@@ -26,6 +26,15 @@ class LocalStorage {
 
   public setRefreshRate(refreshRate: string) {
     return localStorage.setItem('refresh_rate', refreshRate);
+  }
+
+  public isAccordionOpened(id: number): boolean {
+    const accordionOpen = localStorage.getItem('accordion_opened_' + id) || '1';
+    return accordionOpen === '1';
+  }
+
+  public setAccordionOpened(id: number, opened: boolean) {
+    return localStorage.setItem('accordion_opened_' + id, opened ? '1' : '0');
   }
 }
 

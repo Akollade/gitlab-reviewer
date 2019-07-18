@@ -13,6 +13,7 @@ class ProjectItem extends Component<Props> {
 
     return (
       <Accordion
+        id={project.id}
         title={project.name_with_namespace}
         content={<MergeRequestList mergeRequests={project.mergeRequests} />}
       />
