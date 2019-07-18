@@ -39,7 +39,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
   }
 
   public componentDidMount() {
-    document.title = 'GitLab Reviewer | Dashboard';
+    document.title = 'GitLab Reviewer';
 
     if (!this.gitLabApi) {
       return;
