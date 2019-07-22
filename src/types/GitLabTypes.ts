@@ -1,6 +1,6 @@
 type UserState = 'active' | 'blocked';
 
-interface User {
+export interface User {
   id: number;
   name: string;
   username: string;

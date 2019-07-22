@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
+import { UserProvider } from 'components/UserProvider';
 
 interface State {
   projects: Project[];
@@ -67,8 +68,10 @@ class Dashboard extends Component<RouteComponentProps, State> {
 
     return (
       <React.Fragment>
-        <ProjectList projects={projects} />
-        <FavicoMergeRequestsCounter projects={projects} />
+        <UserProvider gitLabApi={this.gitLabApi}>
+          <ProjectList projects={projects} />
+          <FavicoMergeRequestsCounter projects={projects} />
+        </UserProvider>
       </React.Fragment>
     );
   }
