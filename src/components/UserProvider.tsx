@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { GitLabApi } from 'services/GitLabApi';
 import { User } from 'types/GitLabTypes';
 
