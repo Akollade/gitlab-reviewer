@@ -45,13 +45,13 @@ class MergeRequestItem extends Component<Props> {
                   className="border-2 border-gray-500 h-10 w-10"
                 />
               </td>
-              <td className="w-32 text-center">
+              <td className="w-24 text-center">
                 {haveIUpVoted ? <UpvoteIcon size={'lg'} /> : (haveIDownVoted ? <DownvoteIcon size={'lg'} /> : <QuestionIcon size={'lg'} />)}
               </td>
-              <td className="w-32 text-center">
+              <td className="w-24 text-center">
                 <Pill text={mergeRequest.upvotes} type={mergeRequest.upvotes > 0 ? 'success' : 'disable'} />
               </td>
-              <td className="w-32 text-center">
+              <td className="w-24 text-center">
                 <Pill text={mergeRequest.downvotes} type={mergeRequest.downvotes > 0 ? 'danger' : 'disable'} />
               </td>
               <td className="w-32 text-center">
