@@ -109,3 +109,9 @@ export interface ProjectType {
   avatar_url: string;
   star_count: number;
 }
+
+export interface EmojiType {
+  id: number;
+  name: string;
+  user: User;
+}
