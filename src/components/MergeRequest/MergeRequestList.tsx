@@ -26,14 +26,14 @@ class MergeRequestList extends Component<Props> {
             <tr>
               <th>Title</th>
               <th className="w-32 text-center">Author</th>
-              <th className="w-32 text-center">My vote</th>
-              <th className="w-32 text-center">
+              <th className="w-24 text-center">My vote</th>
+              <th className="w-24 text-center">
                 <UpvoteIcon />
               </th>
-              <th className="text-center">
+              <th className="w-24 text-center">
                 <DownvoteIcon />
               </th>
-              <th className="text-center">CI</th>
+              <th className="w-32 text-center">CI</th>
             </tr>
           </thead>
           <tbody>{listItems}</tbody>
