@@ -1,11 +1,11 @@
 import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import ProjectList from 'components/Project/ProjectList';
+import { UserProvider } from 'components/UserProvider';
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
-import { UserProvider } from 'components/UserProvider';
 
 interface State {
   projects: Project[];

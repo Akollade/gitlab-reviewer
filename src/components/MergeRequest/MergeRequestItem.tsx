@@ -1,11 +1,11 @@
+import { DownvoteIcon, QuestionIcon, UpvoteIcon } from 'components/Icons';
 import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
+import { UserContext } from 'components/UserProvider';
 import React, { Component } from 'react';
 import Emojify from 'react-emojione';
 import { MergeRequest } from 'types/FormattedTypes';
-import { UserContext } from 'components/UserProvider';
 import { User } from 'types/GitLabTypes';
-import { UpvoteIcon, DownvoteIcon, QuestionIcon } from 'components/Icons';
 
 interface Props {
   mergeRequest: MergeRequest;
@@ -22,9 +22,8 @@ class MergeRequestItem extends Component<Props> {
     return (
       <UserContext.Consumer>
         {(user: User) => {
-
-          const haveIUpVoted = mergeRequest.upvoters.find((upvoter) => upvoter.id === user.id) ? true : false;
-          const haveIDownVoted = mergeRequest.downvoters.find((downvoter) => downvoter.id === user.id) ? true : false;
+          const haveIUpVoted = mergeRequest.upvoters.find(upvoter => upvoter.id === user.id) ? true : false;
+          const haveIDownVoted = mergeRequest.downvoters.find(downvoter => downvoter.id === user.id) ? true : false;
 
           return (
             <tr>
@@ -46,7 +45,13 @@ class MergeRequestItem extends Component<Props> {
                 />
               </td>
               <td className="w-24 text-center">
-                {haveIUpVoted ? <UpvoteIcon size={'lg'} /> : (haveIDownVoted ? <DownvoteIcon size={'lg'} /> : <QuestionIcon size={'lg'} />)}
+                {haveIUpVoted ? (
+                  <UpvoteIcon size={'lg'} />
+                ) : haveIDownVoted ? (
+                  <DownvoteIcon size={'lg'} />
+                ) : (
+                  <QuestionIcon size={'lg'} />
+                )}
               </td>
               <td className="w-24 text-center">
                 <Pill text={mergeRequest.upvotes} type={mergeRequest.upvotes > 0 ? 'success' : 'disable'} />
@@ -58,7 +63,7 @@ class MergeRequestItem extends Component<Props> {
                 <PipelineStatusButton pipeline={mergeRequest.pipeline} />
               </td>
             </tr>
-          )
+          );
         }}
       </UserContext.Consumer>
     );

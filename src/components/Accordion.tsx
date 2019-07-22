@@ -25,11 +25,11 @@ class Accordion extends Component<Props, State> {
   }
 
   public componentDidMount() {
-    this.setState({ accordionOpened: LocalStorage.isAccordionOpened(this.props.id)});
+    this.setState({ accordionOpened: LocalStorage.isAccordionOpened(this.props.id) });
   }
 
   public toggleAccordion() {
-    const newState = !this.state.accordionOpened ;
+    const newState = !this.state.accordionOpened;
     this.setState({ accordionOpened: newState });
     LocalStorage.setAccordionOpened(this.props.id, newState);
   }

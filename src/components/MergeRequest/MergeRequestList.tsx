@@ -1,7 +1,7 @@
+import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 import React, { Component } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
-import { UpvoteIcon, DownvoteIcon } from 'components/Icons';
 
 interface Props {
   mergeRequests: MergeRequest[];
@@ -28,7 +28,7 @@ class MergeRequestList extends Component<Props> {
               <th className="w-32 text-center">Author</th>
               <th className="w-32 text-center">My vote</th>
               <th className="w-32 text-center">
-                <UpvoteIcon/>
+                <UpvoteIcon />
               </th>
               <th className="text-center">
                 <DownvoteIcon />

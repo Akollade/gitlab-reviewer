@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import LocalStorage from 'services/LocalStorage';
-import { Project, MergeRequest } from 'types/FormattedTypes';
-import { MergeRequestSimpleType, MergeRequestType, ProjectType, EmojiType, User } from 'types/GitLabTypes';
+import { MergeRequest, Project } from 'types/FormattedTypes';
+import { EmojiType, MergeRequestSimpleType, MergeRequestType, ProjectType, User } from 'types/GitLabTypes';
 
 export class GitLabApi {
   private axios: AxiosInstance;
@@ -22,18 +22,26 @@ export class GitLabApi {
   }
 
   private async getMergeRequest(projectId: number, mergeRequestIid: number): Promise<MergeRequest> {
-    const { data: mergeRequest } = await this.axios.get('/projects/' + projectId + '/merge_requests/' + mergeRequestIid);
+    const { data: mergeRequest } = await this.axios.get(
+      '/projects/' + projectId + '/merge_requests/' + mergeRequestIid
+    );
 
     const emojis = await this.getEmojisForMergeRequest(projectId, mergeRequestIid);
 
-    const upvoters = emojis.filter((emoji: EmojiType) => emoji.name === 'thumbsup').map((emoji: EmojiType) => emoji.user);
-    const downvoters = emojis.filter((emoji: EmojiType) => emoji.name === 'thumbsdown').map((emoji: EmojiType) => emoji.user);
+    const upvoters = emojis
+      .filter((emoji: EmojiType) => emoji.name === 'thumbsup')
+      .map((emoji: EmojiType) => emoji.user);
+    const downvoters = emojis
+      .filter((emoji: EmojiType) => emoji.name === 'thumbsdown')
+      .map((emoji: EmojiType) => emoji.user);
 
     return { ...mergeRequest, emojis, upvoters, downvoters };
   }
 
   private async getEmojisForMergeRequest(projectId: number, mergeRequestIid: number): Promise<EmojiType[]> {
-    const { data: emojis } = await this.axios.get('/projects/' + projectId + '/merge_requests/' + mergeRequestIid + '/award_emoji');
+    const { data: emojis } = await this.axios.get(
+      '/projects/' + projectId + '/merge_requests/' + mergeRequestIid + '/award_emoji'
+    );
 
     return emojis;
   }
@@ -85,7 +93,7 @@ export class GitLabApi {
   }
 
   public async getUser(): Promise<User> {
-    const {data: user} = await this.axios.get('/user');
+    const { data: user } = await this.axios.get('/user');
 
     return user;
   }

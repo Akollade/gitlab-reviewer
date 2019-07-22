@@ -27,7 +27,7 @@ type PipelineStatus = 'running' | 'pending' | 'success' | 'failed' | 'canceled' 
 export interface Pipeline {
   web_url: string;
   status: PipelineStatus;
-};
+}
 
 type MergeRequesState = 'opened' | 'closed' | 'locked' | 'merged';
 type MergeRequestStatus = 'can_be_merged' | 'unchecked';
