@@ -9,7 +9,7 @@ class PipelineStatusButton extends Component<Props> {
   private getStyleFromStatus() {
     const { pipeline } = this.props;
 
-    if (pipeline === null) {
+    if (pipeline === null || pipeline === undefined) {
       return '';
     }
 
@@ -29,7 +29,7 @@ class PipelineStatusButton extends Component<Props> {
   public render() {
     const { pipeline } = this.props;
 
-    if (pipeline === null) {
+    if (pipeline === null || pipeline === undefined) {
       return null;
     }
 
