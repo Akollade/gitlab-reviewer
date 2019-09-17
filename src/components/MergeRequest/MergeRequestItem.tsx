@@ -1,4 +1,4 @@
-import { DownvoteIcon, QuestionIcon, UpvoteIcon } from 'components/Icons';
+import { DownvoteIcon, MinusIcon, UpvoteIcon } from 'components/Icons';
 import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
 import { UserContext } from 'components/UserProvider';
@@ -50,7 +50,7 @@ class MergeRequestItem extends Component<Props> {
                 ) : haveIDownVoted ? (
                   <DownvoteIcon size={'lg'} />
                 ) : (
-                  <QuestionIcon size={'lg'} />
+                  <MinusIcon size={'lg'} />
                 )}
               </td>
               <td className="w-24 text-center">
