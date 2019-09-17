@@ -1,5 +1,4 @@
-import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 import React, { Component } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
@@ -27,11 +26,12 @@ class MergeRequestList extends Component<Props> {
             <tr>
               <th>Title</th>
               <th className="w-32 text-center">Author</th>
-              <th className="w-32 text-center">
-                <FontAwesomeIcon icon={faThumbsUp} size="sm" className="text-green-600" />
+              <th className="w-24 text-center">My vote</th>
+              <th className="w-24 text-center">
+                <UpvoteIcon />
               </th>
-              <th className="w-32 text-center">
-                <FontAwesomeIcon icon={faThumbsDown} size="sm" className="text-red-600" />
+              <th className="w-24 text-center">
+                <DownvoteIcon />
               </th>
               <th className="w-32 text-center">CI</th>
             </tr>

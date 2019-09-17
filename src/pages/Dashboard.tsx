@@ -1,5 +1,6 @@
 import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import ProjectList from 'components/Project/ProjectList';
+import { UserProvider } from 'components/UserProvider';
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
@@ -67,8 +68,10 @@ class Dashboard extends Component<RouteComponentProps, State> {
 
     return (
       <React.Fragment>
-        <ProjectList projects={projects} />
-        <FavicoMergeRequestsCounter projects={projects} />
+        <UserProvider gitLabApi={this.gitLabApi}>
+          <ProjectList projects={projects} />
+          <FavicoMergeRequestsCounter projects={projects} />
+        </UserProvider>
       </React.Fragment>
     );
   }

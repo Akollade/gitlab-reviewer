@@ -1,6 +1,6 @@
 type UserState = 'active' | 'blocked';
 
-interface User {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -27,7 +27,7 @@ type PipelineStatus = 'running' | 'pending' | 'success' | 'failed' | 'canceled' 
 export interface Pipeline {
   web_url: string;
   status: PipelineStatus;
-};
+}
 
 type MergeRequesState = 'opened' | 'closed' | 'locked' | 'merged';
 type MergeRequestStatus = 'can_be_merged' | 'unchecked';
@@ -108,4 +108,10 @@ export interface ProjectType {
   forks_count: number;
   avatar_url: string;
   star_count: number;
+}
+
+export interface EmojiType {
+  id: number;
+  name: string;
+  user: User;
 }
