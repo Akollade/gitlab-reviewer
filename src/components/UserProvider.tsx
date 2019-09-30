@@ -26,7 +26,7 @@ export class UserProvider extends React.Component<Props> {
     this.setState(user);
   }
 
-  public componentWillMount() {
+  public componentDidMount() {
     this.updateUser();
   }
 
