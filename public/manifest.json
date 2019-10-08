@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GitLab Reviewer",
+  "name": "UI to see all GitLab merge requests of your team in one place.",
   "icons": [
     {
       "src": "favicon.ico",
