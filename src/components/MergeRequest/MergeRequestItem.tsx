@@ -37,12 +37,14 @@ class MergeRequestItem extends Component<Props> {
                   <Emojify>{mergeRequest.title}</Emojify>
                 </a>
               </td>
-              <td className="w-32 flex justify-center">
-                <img
-                  src={mergeRequest.author.avatar_url}
-                  alt={mergeRequest.author.name}
-                  className="border-2 border-gray-500 h-10 w-10"
-                />
+              <td className="w-32">
+                <div className="flex justify-center">
+                  <img
+                    src={mergeRequest.author.avatar_url}
+                    alt={mergeRequest.author.name}
+                    className="border h-10 w-10 rounded-full shadow"
+                  />
+                </div>
               </td>
               <td className="w-24 text-center">
                 {haveIUpVoted ? (
