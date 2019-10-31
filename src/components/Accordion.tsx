@@ -39,13 +39,13 @@ class Accordion extends Component<Props, State> {
     const { accordionOpened } = this.state;
 
     return (
-      <div className="mx-4 mt-5">
+      <div className="mt-5 bg-white shadow rounded">
         <div
-          className="flex items-center px-4 py-1 text-white bg-blue-900 rounded shadow-md cursor-pointer select-none"
+          className="flex justify-between items-center px-4 py-2 cursor-pointer select-none text-gray-600"
           onClick={this.toggleAccordion}
         >
-          <FontAwesomeIcon icon={accordionOpened ? faChevronUp : faChevronDown} size="1x" className="mr-3" />
-          <p className="font-semibold text-xl">{title}</p>
+          <p className="font-semibold text-lg">{title}</p>
+          <FontAwesomeIcon icon={accordionOpened ? faChevronUp : faChevronDown} size="1x"/>
         </div>
         {accordionOpened && content}
       </div>

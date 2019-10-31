@@ -35,7 +35,7 @@ class PipelineStatusButton extends Component<Props> {
 
     return (
       <a
-        className={'text-white p-2 rounded shadow font-bold ' + this.getStyleFromStatus()}
+        className={'inline-block text-white p-2 rounded shadow font-bold w-20 ' + this.getStyleFromStatus()}
         target="_blank"
         rel="noopener noreferrer"
         href={pipeline.web_url}

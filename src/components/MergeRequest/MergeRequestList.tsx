@@ -20,22 +20,8 @@ class MergeRequestList extends Component<Props> {
     ));
 
     return (
-      <div className="pl-3">
+      <div className="pl-3 border-gray-200 border-t-2 bg-gray-100">
         <table className="w-full">
-          <thead className="text-2xl">
-            <tr>
-              <th>Title</th>
-              <th className="w-32 text-center">Author</th>
-              <th className="w-24 text-center">My vote</th>
-              <th className="w-24 text-center">
-                <UpvoteIcon />
-              </th>
-              <th className="w-24 text-center">
-                <DownvoteIcon />
-              </th>
-              <th className="w-32 text-center">CI</th>
-            </tr>
-          </thead>
           <tbody>{listItems}</tbody>
         </table>
       </div>

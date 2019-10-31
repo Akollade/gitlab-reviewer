@@ -40,8 +40,8 @@ interface FullProps extends Props {
 
 const IconGenerator = (props: FullProps) => <FontAwesomeIcon size={props.size || defaultSize} {...props} />;
 
-export const UpvoteIcon = (props: Props) => <IconGenerator icon={faThumbsUp} {...props} className="text-green-600" />;
+export const UpvoteIcon = (props: Props) => <IconGenerator icon={faThumbsUp} {...props} className="text-green-500" />;
 
-export const DownvoteIcon = (props: Props) => <IconGenerator icon={faThumbsDown} {...props} className="text-red-600" />;
+export const DownvoteIcon = (props: Props) => <IconGenerator icon={faThumbsDown} {...props} className="text-red-500" />;
 
-export const MinusIcon = (props: Props) => <IconGenerator icon={faMinus} {...props} className="text-gray-600" />;
+export const MinusIcon = (props: Props) => <IconGenerator icon={faMinus} {...props} className="text-gray-500 text-sm" />;
