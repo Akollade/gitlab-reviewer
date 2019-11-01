@@ -1,4 +1,3 @@
-import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
 import React, { Component } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
