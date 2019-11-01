@@ -1,5 +1,5 @@
-import ProjectItem from 'components/Project/ProjectItem';
 import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
+import ProjectItem from 'components/Project/ProjectItem';
 import React, { Component } from 'react';
 import { Project } from 'types/FormattedTypes';
 
