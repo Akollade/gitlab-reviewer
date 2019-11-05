@@ -39,7 +39,7 @@ class Accordion extends Component<Props, State> {
     const { accordionOpened } = this.state;
 
     return (
-      <div className="mt-5 bg-white shadow rounded">
+      <div className="mt-5 bg-white shadow-md rounded">
         <div
           className="flex justify-between items-center px-4 py-2 cursor-pointer select-none text-indigo-600"
           onClick={this.toggleAccordion}

@@ -42,7 +42,7 @@ class MergeRequestItem extends Component<Props> {
                   <img
                     src={mergeRequest.author.avatar_url}
                     alt={mergeRequest.author.name}
-                    className="h-10 w-10 rounded-full shadow"
+                    className="h-10 w-10 rounded-full shadow-md"
                   />
                 </div>
               </td>

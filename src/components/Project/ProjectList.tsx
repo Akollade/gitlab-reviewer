@@ -19,7 +19,7 @@ class ProjectList extends Component<Props> {
 
     return (
       <div className="mx-4">
-        <div className="bg-white mt-5 shadow rounded py-2">
+        <div className="bg-white mt-5 shadow-md rounded py-2">
           <table className="w-full">
             <thead className="text-gray-600">
               <tr>
