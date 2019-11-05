@@ -41,7 +41,7 @@ class Accordion extends Component<Props, State> {
     return (
       <div className="mt-5 bg-white shadow rounded">
         <div
-          className="flex justify-between items-center px-4 py-2 cursor-pointer select-none text-gray-600"
+          className="flex justify-between items-center px-4 py-2 cursor-pointer select-none text-indigo-600"
           onClick={this.toggleAccordion}
         >
           <p className="font-semibold text-lg">{title}</p>
