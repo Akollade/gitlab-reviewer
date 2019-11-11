@@ -18,7 +18,7 @@ class ProjectList extends Component<Props> {
     const listItems = projects.map((project: Project) => <ProjectItem key={project.id} project={project} />);
 
     return (
-      <div className="mx-4">
+      <div className="m-5">
         <div className="bg-white mt-5 shadow-md rounded py-2">
           <table className="w-full">
             <thead className="text-gray-600">
