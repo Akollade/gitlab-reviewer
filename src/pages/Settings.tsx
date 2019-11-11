@@ -56,16 +56,16 @@ class Settings extends Component<RouteComponentProps, State> {
     const { url, privateToken, refreshRate, error } = this.state;
 
     return (
-      <div className="container mt-4 w-5/6 mx-auto">
+      <div className="max-w-xl mx-auto mt-5">
         <h1 className="text-3xl font-semibold">Settings</h1>
 
-        <form className="mt-6 flex-col justify-center" onSubmit={this.handleSubmit}>
+        <form className="mt-16 flex-col justify-center" onSubmit={this.handleSubmit}>
           <div className="flex items-center mb-4">
-            <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="url">
+            <label className="w-2/5 pr-6 font-semibold text-lg" htmlFor="url">
               GitLab url
             </label>
             <input
-              className="w-4/5"
+              className="w-3/5"
               type="url"
               name="url"
               placeholder="https://gitlab.example.com"
@@ -75,11 +75,11 @@ class Settings extends Component<RouteComponentProps, State> {
             />
           </div>
           <div className="flex items-center mb-4">
-            <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="token">
+            <label className="w-2/5 pr-6 font-semibold text-lg" htmlFor="token">
               Private token
             </label>
             <input
-              className="w-4/5"
+              className="w-3/5"
               type="text"
               name="privateToken"
               defaultValue={privateToken}
@@ -88,11 +88,11 @@ class Settings extends Component<RouteComponentProps, State> {
             />
           </div>
           <div className="flex items-center mb-4">
-            <label className="w-1/2 text-right mr-6 font-semibold text-lg" htmlFor="refresh_rate">
+            <label className="w-2/5 pr-6 font-semibold text-lg" htmlFor="refresh_rate">
               Refresh rate (minutes)
             </label>
             <input
-              className="w-4/5"
+              className="w-3/5"
               type="number"
               name="refreshRate"
               defaultValue={refreshRate}
@@ -100,15 +100,15 @@ class Settings extends Component<RouteComponentProps, State> {
             />
           </div>
           <div className="flex justify-center mt-6">
-            <div className="w-1/2 mr-6" />
-            <div className="w-4/5 flex-col">
+            <div className="w-2/5"/>
+            <div className="w-3/5 flex-col">
               <input
-                className="py-2 px-6 bg-blue-500 text-white hover:bg-white hover:text-blue-500 cursor-pointer"
+                className="py-2 px-6 bg-indigo-500 text-white hover:bg-indigo-600 cursor-pointer"
                 type="submit"
                 value="Save"
               />
               {error && (
-                <div className="mt-4 border-red-500 border-1 border-solid rounded py-2 px-4 bg-white">
+                <div className="mt-4 border-red-500 border border-solid rounded py-2 px-4 bg-white">
                   <p>
                     Authentication failed{' '}
                     <span role="img" aria-label="Disappointed Face">
@@ -117,11 +117,7 @@ class Settings extends Component<RouteComponentProps, State> {
                     .
                   </p>
                   <p>
-                    Check your url and token{' '}
-                    <span role="img" aria-label="Slightly Smiling">
-                      🙂
-                    </span>
-                    .
+                    Check your url and token.
                   </p>
                 </div>
               )}
