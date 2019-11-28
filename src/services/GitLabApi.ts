@@ -16,7 +16,7 @@ export class GitLabApi {
 
   public async getMergeRequests(): Promise<MergeRequest[]> {
     const mergeRequestsResponse = await this.axios.get(
-      '/merge_requests?state=opened&scope=all&order_by=updated_at&view=simple'
+      '/merge_requests?state=opened&scope=all&order_by=updated_at&view=simple&per_page=50'
     );
     return await this.getDetailedMergeRequests(mergeRequestsResponse.data);
   }
