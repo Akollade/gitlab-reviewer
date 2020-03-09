@@ -47,7 +47,7 @@ export class GitLabApi {
   }
 
   private async getDetailedMergeRequests(mergeRequests: MergeRequestSimpleType[]): Promise<MergeRequest[]> {
-    const mergeRequestsFetchPromises: Array<Promise<MergeRequest>> = [];
+    const mergeRequestsFetchPromises: Promise<MergeRequest>[] = [];
 
     mergeRequests.forEach((mergeRequest: MergeRequestSimpleType) => {
       mergeRequestsFetchPromises.push(this.getMergeRequest(mergeRequest.project_id, mergeRequest.iid));
