@@ -49,7 +49,7 @@
     "@types/favico.js": "^0.0.28",
     "autoprefixer": "^9.7.5",
     "postcss-cli": "^7.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "prettier-tslint": "^0.4.2",
     "tailwindcss": "^1.2.0",
     "tslint": "^6.1.0",
