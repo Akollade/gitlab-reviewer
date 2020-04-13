@@ -45,7 +45,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@fullhuman/postcss-purgecss": "^2.1.2",
     "@types/favico.js": "^0.0.28",
     "autoprefixer": "^9.7.6",
     "postcss-cli": "^7.1.0",
