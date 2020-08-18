@@ -8,7 +8,7 @@ interface Props {
 
 class MergeRequestList extends Component<Props> {
   public static defaultProps: Props = {
-    mergeRequests: []
+    mergeRequests: [],
   };
 
   public render() {

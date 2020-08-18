@@ -15,7 +15,7 @@ class Settings extends Component<RouteComponentProps, State> {
     url: LocalStorage.getUrl() || '',
     privateToken: LocalStorage.getPrivateToken() || '',
     refreshRate: LocalStorage.getRefreshRate(),
-    error: false
+    error: false,
   };
 
   constructor(props: RouteComponentProps) {
@@ -100,7 +100,7 @@ class Settings extends Component<RouteComponentProps, State> {
             />
           </div>
           <div className="flex justify-center mt-6">
-            <div className="w-2/5"/>
+            <div className="w-2/5" />
             <div className="w-3/5 flex-col">
               <input
                 className="py-2 px-6 bg-indigo-500 text-white hover:bg-indigo-600 cursor-pointer"
@@ -116,9 +116,7 @@ class Settings extends Component<RouteComponentProps, State> {
                     </span>
                     .
                   </p>
-                  <p>
-                    Check your url and token.
-                  </p>
+                  <p>Check your url and token.</p>
                 </div>
               )}
             </div>

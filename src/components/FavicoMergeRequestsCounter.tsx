@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 // see https://github.com/ejci/favico.js/issues/126
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Favico = require('favico.js');
 
 function getMergeRequestsCount(projects: Project[]): number {

@@ -9,7 +9,7 @@ interface Props {
 
 class ProjectList extends Component<Props> {
   public static defaultProps: Props = {
-    projects: []
+    projects: [],
   };
 
   public render() {

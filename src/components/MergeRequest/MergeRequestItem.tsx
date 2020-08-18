@@ -13,7 +13,7 @@ interface Props {
 
 class MergeRequestItem extends Component<Props> {
   public static defaultProps = {
-    mergeRequests: []
+    mergeRequests: [],
   };
 
   public render() {
@@ -22,8 +22,8 @@ class MergeRequestItem extends Component<Props> {
     return (
       <UserContext.Consumer>
         {(user: User) => {
-          const haveIUpVoted = mergeRequest.upvoters.find(upvoter => upvoter.id === user.id) ? true : false;
-          const haveIDownVoted = mergeRequest.downvoters.find(downvoter => downvoter.id === user.id) ? true : false;
+          const haveIUpVoted = mergeRequest.upvoters.find((upvoter) => upvoter.id === user.id) ? true : false;
+          const haveIDownVoted = mergeRequest.downvoters.find((downvoter) => downvoter.id === user.id) ? true : false;
 
           return (
             <tr>
