@@ -15,7 +15,7 @@ interface State {
 
 class Accordion extends Component<Props, State> {
   public state: State = {
-    accordionOpened: true
+    accordionOpened: true,
   };
 
   constructor(props: Props) {
@@ -45,7 +45,7 @@ class Accordion extends Component<Props, State> {
           onClick={this.toggleAccordion}
         >
           <p className="font-semibold text-lg">{title}</p>
-          <FontAwesomeIcon icon={accordionOpened ? faChevronUp : faChevronDown} size="1x"/>
+          <FontAwesomeIcon icon={accordionOpened ? faChevronUp : faChevronDown} size="1x" />
         </div>
         {accordionOpened && content}
       </div>

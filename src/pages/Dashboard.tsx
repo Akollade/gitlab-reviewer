@@ -16,7 +16,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
   private intervalRef: number | null;
 
   public state: State = {
-    projects: []
+    projects: [],
   };
 
   constructor(props: RouteComponentProps) {
@@ -35,7 +35,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
     const projects = await this.gitLabApi.getProjectsWithMergeRequests();
 
     this.setState({
-      projects
+      projects,
     });
   }
 

@@ -8,7 +8,7 @@ const intialValue: User = {
   username: '',
   state: 'active',
   avatar_url: '',
-  web_url: ''
+  web_url: '',
 };
 
 export const UserContext: React.Context<User> = React.createContext(intialValue);

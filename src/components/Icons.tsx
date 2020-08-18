@@ -5,7 +5,7 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
-  Transform
+  Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { faMinus, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -44,4 +44,6 @@ export const UpvoteIcon = (props: Props) => <IconGenerator icon={faThumbsUp} {..
 
 export const DownvoteIcon = (props: Props) => <IconGenerator icon={faThumbsDown} {...props} className="text-red-500" />;
 
-export const MinusIcon = (props: Props) => <IconGenerator icon={faMinus} {...props} className="text-gray-500 text-sm" />;
+export const MinusIcon = (props: Props) => (
+  <IconGenerator icon={faMinus} {...props} className="text-gray-500 text-sm" />
+);

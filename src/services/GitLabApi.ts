@@ -10,7 +10,7 @@ export class GitLabApi {
     this.axios = axios.create({
       baseURL: url + '/api/v4',
       timeout: 5000,
-      headers: { 'PRIVATE-TOKEN': privateToken }
+      headers: { 'PRIVATE-TOKEN': privateToken },
     });
   }
 
