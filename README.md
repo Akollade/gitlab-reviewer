@@ -4,6 +4,8 @@
 
 UI to see all GitLab merge requests of your team in one place.
 
+![gitlab-reviewer](screenshot.png)
+
 ## Requirements
 
 * [GitLab](https://about.gitlab.com/)
