@@ -1,4 +1,4 @@
-import React, { Component, FormEvent } from 'react';
+import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
@@ -25,7 +25,7 @@ class Settings extends Component<RouteComponentProps, State> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     document.title = 'GitLab Reviewer | Settings';
   }
 
@@ -52,7 +52,7 @@ class Settings extends Component<RouteComponentProps, State> {
     }
   }
 
-  public render() {
+  public render(): JSX.Element {
     const { url, privateToken, refreshRate, error } = this.state;
 
     return (
