@@ -65,15 +65,13 @@ export class GitLabApi {
     const mergeRequests = await this.getMergeRequests();
     const projects = await this.getProjectsForMergeRequests(mergeRequests);
 
-    const bundledProjects: Project[] = projects.map(
-      (project: ProjectType): Project => {
-        const mergeRequestsForProject = mergeRequests.filter(
-          (mergeRequest: MergeRequest) => mergeRequest.project_id === project.id
-        );
+    const bundledProjects: Project[] = projects.map((project: ProjectType): Project => {
+      const mergeRequestsForProject = mergeRequests.filter(
+        (mergeRequest: MergeRequest) => mergeRequest.project_id === project.id
+      );
 
-        return { ...project, mergeRequests: mergeRequestsForProject };
-      }
-    );
+      return { ...project, mergeRequests: mergeRequestsForProject };
+    });
 
     return bundledProjects;
   }
