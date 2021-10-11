@@ -35,7 +35,7 @@ export class GitLabApi {
       .filter((emoji: EmojiType) => emoji.name === 'thumbsdown')
       .map((emoji: EmojiType) => emoji.user);
 
-    return { ...mergeRequest, emojis, upvoters, downvoters };
+    return { ...(mergeRequest as MergeRequestType), emojis, upvoters, downvoters };
   }
 
   private async getEmojisForMergeRequest(projectId: number, mergeRequestIid: number): Promise<EmojiType[]> {
