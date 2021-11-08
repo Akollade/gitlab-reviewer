@@ -1,6 +1,6 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import LocalStorage from 'services/LocalStorage';
 
 interface Props {
@@ -24,17 +24,17 @@ class Accordion extends Component<Props, State> {
     this.toggleAccordion = this.toggleAccordion.bind(this);
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     this.setState({ accordionOpened: LocalStorage.isAccordionOpened(this.props.id) });
   }
 
-  public toggleAccordion() {
+  public toggleAccordion(): void {
     const newState = !this.state.accordionOpened;
     this.setState({ accordionOpened: newState });
     LocalStorage.setAccordionOpened(this.props.id, newState);
   }
 
-  public render() {
+  public render(): ReactNode {
     const { title, content } = this.props;
     const { accordionOpened } = this.state;
 

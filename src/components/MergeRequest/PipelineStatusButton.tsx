@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { Pipeline } from 'types/GitLabTypes';
 
 interface Props {
@@ -26,7 +26,7 @@ class PipelineStatusButton extends Component<Props> {
     }
   }
 
-  public render() {
+  public render(): ReactNode {
     const { pipeline } = this.props;
 
     if (pipeline === null || pipeline === undefined) {

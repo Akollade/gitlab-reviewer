@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 class NoMatch extends Component<RouteComponentProps> {
@@ -8,7 +8,7 @@ class NoMatch extends Component<RouteComponentProps> {
     props.history.push('/');
   }
 
-  public render() {
+  public render(): ReactNode {
     return null;
   }
 }

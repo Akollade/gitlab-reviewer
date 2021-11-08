@@ -1,6 +1,6 @@
 import Accordion from 'components/Accordion';
 import MergeRequestList from 'components/MergeRequest/MergeRequestList';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 class ProjectItem extends Component<Props> {
-  public render() {
+  public render(): ReactNode {
     const { project } = this.props;
 
     return (

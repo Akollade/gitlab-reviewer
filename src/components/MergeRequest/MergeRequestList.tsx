@@ -1,5 +1,5 @@
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
 
 interface Props {
@@ -11,7 +11,7 @@ class MergeRequestList extends Component<Props> {
     mergeRequests: [],
   };
 
-  public render() {
+  public render(): ReactNode {
     const { mergeRequests } = this.props;
 
     const listItems = mergeRequests.map((mergeRequest: MergeRequest) => (
