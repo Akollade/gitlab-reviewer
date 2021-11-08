@@ -35,7 +35,7 @@ class Settings extends Component<RouteComponentProps, State> {
     this.setState({ [event.target.name]: event.target.value } as Pick<State, 'url' | 'privateToken' | 'refreshRate'>);
   }
 
-  public async handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  public async handleSubmit(event: React.FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
     const { url, privateToken, refreshRate } = this.state;
 

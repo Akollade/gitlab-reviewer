@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 
 interface Props {
   text: string | number;
@@ -25,7 +25,7 @@ class Pill extends Component<Props> {
     }
   }
 
-  public render() {
+  public render(): ReactNode {
     const { text } = this.props;
 
     return (

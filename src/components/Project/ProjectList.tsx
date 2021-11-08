@@ -1,6 +1,6 @@
 import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
 import ProjectItem from 'components/Project/ProjectItem';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 interface Props {
@@ -12,7 +12,7 @@ class ProjectList extends Component<Props> {
     projects: [],
   };
 
-  public render() {
+  public render(): ReactNode {
     const { projects } = this.props;
 
     const listItems = projects.map((project: Project) => <ProjectItem key={project.id} project={project} />);

@@ -2,7 +2,7 @@ import { DownvoteIcon, MinusIcon, UpvoteIcon } from 'components/Icons';
 import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
 import { UserContext } from 'components/UserProvider';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import Emojify from 'react-emojione';
 import { MergeRequest } from 'types/FormattedTypes';
 import { User } from 'types/GitLabTypes';
@@ -16,7 +16,7 @@ class MergeRequestItem extends Component<Props> {
     mergeRequests: [],
   };
 
-  public render() {
+  public render(): ReactNode {
     const { mergeRequest } = this.props;
 
     return (

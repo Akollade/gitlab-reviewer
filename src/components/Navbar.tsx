@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
-  public render() {
+  public render(): ReactNode {
     return (
       <nav className="flex items-center justify-between px-5 py-2 bg-white shadow-md">
         <div>

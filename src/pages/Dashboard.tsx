@@ -1,7 +1,7 @@
 import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import ProjectList from 'components/Project/ProjectList';
 import { UserProvider } from 'components/UserProvider';
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
@@ -31,7 +31,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
     }
   }
 
-  public async fetchProjects() {
+  public async fetchProjects(): Promise<void> {
     const projects = await this.gitLabApi.getProjectsWithMergeRequests();
 
     this.setState({
@@ -39,7 +39,7 @@ class Dashboard extends Component<RouteComponentProps, State> {
     });
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     document.title = 'GitLab Reviewer';
 
     if (!this.gitLabApi) {
@@ -53,13 +53,13 @@ class Dashboard extends Component<RouteComponentProps, State> {
     }, LocalStorage.getRefreshRateAsNumber() * 60 * 1000);
   }
 
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     if (this.intervalRef) {
       window.clearInterval(this.intervalRef);
     }
   }
 
-  public render() {
+  public render(): ReactNode {
     const { projects } = this.state;
 
     if (projects.length === 0) {

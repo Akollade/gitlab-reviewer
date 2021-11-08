@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 // see https://github.com/ejci/favico.js/issues/126
@@ -19,12 +19,12 @@ interface Props {
 class FavicoMergeRequestsCounter extends Component<Props> {
   private favicon: favicojs.Favico = new Favico({ animation: 'fade' });
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     const mergeRequestsLength = getMergeRequestsCount(this.props.projects);
     this.favicon.badge(mergeRequestsLength);
   }
 
-  public componentDidUpdate({ projects: prevProjects }: Props) {
+  public componentDidUpdate({ projects: prevProjects }: Props): void {
     const oldMergeRequestsLength = getMergeRequestsCount(prevProjects);
     const newMergeRequestsLength = getMergeRequestsCount(this.props.projects);
 
@@ -33,11 +33,11 @@ class FavicoMergeRequestsCounter extends Component<Props> {
     }
   }
 
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     this.favicon.reset();
   }
 
-  public render() {
+  public render(): ReactNode {
     return null;
   }
 }

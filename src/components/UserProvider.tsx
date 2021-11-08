@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component, ReactNode } from 'react';
 import { GitLabApi } from 'services/GitLabApi';
 import { User } from 'types/GitLabTypes';
 
-const intialValue: User = {
+const initialValue: User = {
   id: 0,
   name: '',
   username: '',
@@ -11,26 +11,26 @@ const intialValue: User = {
   web_url: '',
 };
 
-export const UserContext: React.Context<User> = React.createContext(intialValue);
+export const UserContext: React.Context<User> = React.createContext(initialValue);
 
 interface Props {
   gitLabApi: GitLabApi;
 }
 
-export class UserProvider extends React.Component<Props> {
-  public state = intialValue;
+export class UserProvider extends Component<Props> {
+  public state = initialValue;
 
-  public async updateUser() {
+  public async updateUser(): Promise<void> {
     const user = await this.props.gitLabApi.getUser();
 
     this.setState(user);
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     this.updateUser();
   }
 
-  public render() {
+  public render(): ReactNode {
     return <UserContext.Provider value={this.state}>{this.props.children}</UserContext.Provider>;
   }
 }
