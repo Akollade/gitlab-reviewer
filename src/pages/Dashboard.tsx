@@ -1,14 +1,14 @@
 import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import ProjectList from 'components/Project/ProjectList';
 import { UserProvider } from 'components/UserProvider';
-import React, { FunctionComponent, useCallback, useEffect, useState} from 'react';
+import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
+import { createGitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
 
 const Dashboard: FunctionComponent<RouteComponentProps> = ({ history }) => {
-  const gitLabApi = useCallback((): GitLabApi => {
+  const gitLabApi = useCallback(() => {
     try {
       return createGitLabApi();
     } catch (error) {
@@ -22,11 +22,13 @@ const Dashboard: FunctionComponent<RouteComponentProps> = ({ history }) => {
     document.title = 'GitLab Reviewer';
 
     const fetchProjects = async (): Promise<void> => {
-      if (!gitLabApi) {
+      const api = gitLabApi();
+
+      if (!api) {
         return;
       }
 
-      const projects = await gitLabApi().getProjectsWithMergeRequests();
+      const projects = await api.getProjectsWithMergeRequests();
 
       setProjects(projects);
     };
@@ -42,13 +44,14 @@ const Dashboard: FunctionComponent<RouteComponentProps> = ({ history }) => {
     };
   }, []);
 
-  if (gitLabApi === null || projects.length === 0) {
+  const api = gitLabApi();
+  if (!api || projects.length === 0) {
     return null;
   }
 
   return (
     <React.Fragment>
-      <UserProvider gitLabApi={gitLabApi()}>
+      <UserProvider gitLabApi={api}>
         <ProjectList projects={projects} />
         <FavicoMergeRequestsCounter projects={projects} />
       </UserProvider>
