@@ -1,14 +1,12 @@
-import React, { Component, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Pipeline } from 'types/GitLabTypes';
 
 interface Props {
   pipeline: Pipeline | null;
 }
 
-class PipelineStatusButton extends Component<Props> {
-  private getStyleFromStatus() {
-    const { pipeline } = this.props;
-
+const PipelineStatusButton: FunctionComponent<Props> = ({ pipeline }) => {
+  const getStyleFromStatus = () => {
     if (pipeline === null || pipeline === undefined) {
       return '';
     }
@@ -24,28 +22,22 @@ class PipelineStatusButton extends Component<Props> {
         return 'bg-gray-500 hover:bg-grey-600';
       }
     }
+  };
+
+  if (pipeline === null || pipeline === undefined) {
+    return null;
   }
 
-  public render(): ReactNode {
-    const { pipeline } = this.props;
-
-    if (pipeline === null || pipeline === undefined) {
-      return null;
-    }
-
-    return (
-      <a
-        className={
-          'inline-block text-white px-2 py-3 rounded shadow font-bold w-20 leading-none ' + this.getStyleFromStatus()
-        }
-        target="_blank"
-        rel="noopener noreferrer"
-        href={pipeline.web_url}
-      >
-        {pipeline.status}
-      </a>
-    );
-  }
-}
+  return (
+    <a
+      className={'inline-block text-white px-2 py-3 rounded shadow font-bold w-20 leading-none ' + getStyleFromStatus()}
+      target="_blank"
+      rel="noopener noreferrer"
+      href={pipeline.web_url}
+    >
+      {pipeline.status}
+    </a>
+  );
+};
 
 export default PipelineStatusButton;

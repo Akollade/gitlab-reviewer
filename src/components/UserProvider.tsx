@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { GitLabApi } from 'services/GitLabApi';
 import { User } from 'types/GitLabTypes';
 
@@ -17,20 +17,18 @@ interface Props {
   gitLabApi: GitLabApi;
 }
 
-export class UserProvider extends Component<Props> {
-  public state = initialValue;
+export const UserProvider: FunctionComponent<Props> = ({ gitLabApi, children }) => {
+  const [user, setUser] = useState<User>(initialValue);
 
-  public async updateUser(): Promise<void> {
-    const user = await this.props.gitLabApi.getUser();
+  useEffect(() => {
+    const updateUser = async (): Promise<void> => {
+      const user = await gitLabApi.getUser();
 
-    this.setState(user);
-  }
+      setUser(user);
+    };
 
-  public componentDidMount(): void {
-    this.updateUser();
-  }
+    updateUser();
+  }, [gitLabApi]);
 
-  public render(): ReactNode {
-    return <UserContext.Provider value={this.state}>{this.props.children}</UserContext.Provider>;
-  }
-}
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+};
