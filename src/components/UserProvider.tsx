@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { GitLabApi } from 'services/GitLabApi';
 import { User } from 'types/GitLabTypes';
+import { GitLabApiContext } from 'components/GitLabApiProvider';
 
 const initialValue: User = {
   id: 0,
@@ -11,17 +11,19 @@ const initialValue: User = {
   web_url: '',
 };
 
-export const UserContext: React.Context<User> = React.createContext(initialValue);
+export const UserContext = React.createContext<User>(initialValue);
 
-interface Props {
-  gitLabApi: GitLabApi;
-}
+export const UserProvider: FunctionComponent = ({ children }) => {
+  const gitLabApi = React.useContext(GitLabApiContext);
 
-export const UserProvider: FunctionComponent<Props> = ({ gitLabApi, children }) => {
   const [user, setUser] = useState<User>(initialValue);
 
   useEffect(() => {
     const updateUser = async (): Promise<void> => {
+      if (!gitLabApi) {
+        return;
+      }
+
       const user = await gitLabApi.getUser();
 
       setUser(user);
