@@ -1,9 +1,9 @@
-import React, { FunctionComponent, Component, useState } from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { GitLabApi } from 'services/GitLabApi';
 import LocalStorage from 'services/LocalStorage';
 
-const Settings: FunctionComponent<RouteComponentProps> = ({ history }) => {
+const Settings = ({ history }: RouteComponentProps): JSX.Element => {
   document.title = 'GitLab Reviewer | Settings';
 
   const [fieldsState, setFieldsState] = useState({

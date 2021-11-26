@@ -2,12 +2,11 @@ import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
 import { GitLabApiContext } from 'components/GitLabApiProvider';
 import ProjectList from 'components/Project/ProjectList';
 import { UserProvider } from 'components/UserProvider';
-import { FunctionComponent, useContext, useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
 
-const Dashboard: FunctionComponent<RouteComponentProps> = () => {
+const Dashboard = (): JSX.Element | null => {
   const gitLabApi = useContext(GitLabApiContext);
 
   const [projects, setProjects] = useState<Project[]>([]);

@@ -1,11 +1,10 @@
-import React, { FunctionComponent } from 'react';
 import { Pipeline } from 'types/GitLabTypes';
 
 interface Props {
   pipeline: Pipeline | null;
 }
 
-const PipelineStatusButton: FunctionComponent<Props> = ({ pipeline }) => {
+const PipelineStatusButton = ({ pipeline }: Props): JSX.Element | null => {
   const getStyleFromStatus = () => {
     if (pipeline === null || pipeline === undefined) {
       return '';

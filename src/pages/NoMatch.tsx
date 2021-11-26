@@ -1,8 +1,7 @@
-import { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-const NoMatch: FunctionComponent<RouteComponentProps> = (props) => {
-  props.history.push('/');
+const NoMatch = ({ history }: RouteComponentProps): null => {
+  history.push('/');
 
   return null;
 };

@@ -1,13 +1,12 @@
 import { DownvoteIcon, UpvoteIcon } from 'components/Icons';
 import ProjectItem from 'components/Project/ProjectItem';
-import React, { FunctionComponent } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 interface Props {
   projects: Project[];
 }
 
-const ProjectList: FunctionComponent<Props> = ({ projects = [] }) => {
+const ProjectList = ({ projects = [] }: Props): JSX.Element => {
   const listItems = projects.map((project: Project) => <ProjectItem key={project.id} project={project} />);
 
   return (

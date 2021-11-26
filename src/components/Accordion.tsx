@@ -1,6 +1,6 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LocalStorage from 'services/LocalStorage';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-const Accordion: FunctionComponent<Props> = ({ id, content, title }) => {
+const Accordion = ({ id, content, title }: Props): JSX.Element => {
   const [accordionOpened, setAccordionOpened] = useState(true);
 
   useEffect(() => {

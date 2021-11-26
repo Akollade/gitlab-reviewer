@@ -1,11 +1,9 @@
-import React, { FunctionComponent } from 'react';
-
 interface Props {
   text: string | number;
   type: 'success' | 'danger' | 'disable';
 }
 
-const Pill: FunctionComponent<Props> = ({ text, type }) => {
+const Pill = ({ text, type }: Props): JSX.Element => {
   const getStyleFromType = () => {
     switch (type) {
       case 'success': {

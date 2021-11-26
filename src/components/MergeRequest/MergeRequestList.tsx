@@ -1,12 +1,11 @@
 import MergeRequestItem from 'components/MergeRequest/MergeRequestItem';
-import React, { FunctionComponent } from 'react';
 import { MergeRequest } from 'types/FormattedTypes';
 
 interface Props {
   mergeRequests: MergeRequest[];
 }
 
-const MergeRequestList: FunctionComponent<Props> = ({ mergeRequests = [] }) => {
+const MergeRequestList = ({ mergeRequests = [] }: Props): JSX.Element => {
   const listItems = mergeRequests.map((mergeRequest: MergeRequest) => (
     <MergeRequestItem key={mergeRequest.id} mergeRequest={mergeRequest} />
   ));

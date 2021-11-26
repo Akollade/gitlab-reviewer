@@ -2,7 +2,6 @@ import { DownvoteIcon, MinusIcon, UpvoteIcon } from 'components/Icons';
 import PipelineStatusButton from 'components/MergeRequest/PipelineStatusButton';
 import Pill from 'components/Pill';
 import { UserContext } from 'components/UserProvider';
-import React, { FunctionComponent } from 'react';
 import Emojify from 'react-emojione';
 import { MergeRequest } from 'types/FormattedTypes';
 import { User } from 'types/GitLabTypes';
@@ -11,7 +10,7 @@ interface Props {
   mergeRequest: MergeRequest;
 }
 
-const MergeRequestItem: FunctionComponent<Props> = ({ mergeRequest }) => {
+const MergeRequestItem = ({ mergeRequest }: Props): JSX.Element => {
   return (
     <UserContext.Consumer>
       {(user: User) => {

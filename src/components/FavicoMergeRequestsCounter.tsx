@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 // see https://github.com/ejci/favico.js/issues/126
@@ -16,7 +16,7 @@ interface Props {
   projects: Project[];
 }
 
-const FavicoMergeRequestsCounter: FunctionComponent<Props> = ({ projects }) => {
+const FavicoMergeRequestsCounter = ({ projects }: Props): JSX.Element | null => {
   useEffect(() => {
     const favicon: favicojs.Favico = new Favico({ animation: 'fade' });
     const mergeRequestsLength = getMergeRequestsCount(projects);

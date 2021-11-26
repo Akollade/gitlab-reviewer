@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { User } from 'types/GitLabTypes';
 import { GitLabApiContext } from 'components/GitLabApiProvider';
 
@@ -13,7 +13,7 @@ const initialValue: User = {
 
 export const UserContext = React.createContext<User>(initialValue);
 
-export const UserProvider: FunctionComponent = ({ children }) => {
+export const UserProvider = ({ children }: PropsWithChildren<unknown>): JSX.Element => {
   const gitLabApi = React.useContext(GitLabApiContext);
 
   const [user, setUser] = useState<User>(initialValue);
