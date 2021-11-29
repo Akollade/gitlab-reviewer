@@ -1,6 +1,6 @@
-import React, { Component, ReactNode } from 'react';
-import { GitLabApi } from 'services/GitLabApi';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { User } from 'types/GitLabTypes';
+import { GitLabApiContext } from 'components/GitLabApiProvider';
 
 const initialValue: User = {
   id: 0,
@@ -11,26 +11,26 @@ const initialValue: User = {
   web_url: '',
 };
 
-export const UserContext: React.Context<User> = React.createContext(initialValue);
+export const UserContext = React.createContext<User>(initialValue);
 
-interface Props {
-  gitLabApi: GitLabApi;
-}
+export const UserProvider = ({ children }: PropsWithChildren<unknown>): JSX.Element => {
+  const gitLabApi = React.useContext(GitLabApiContext);
 
-export class UserProvider extends Component<Props> {
-  public state = initialValue;
+  const [user, setUser] = useState<User>(initialValue);
 
-  public async updateUser(): Promise<void> {
-    const user = await this.props.gitLabApi.getUser();
+  useEffect(() => {
+    const updateUser = async (): Promise<void> => {
+      if (!gitLabApi) {
+        return;
+      }
 
-    this.setState(user);
-  }
+      const user = await gitLabApi.getUser();
 
-  public componentDidMount(): void {
-    this.updateUser();
-  }
+      setUser(user);
+    };
 
-  public render(): ReactNode {
-    return <UserContext.Provider value={this.state}>{this.props.children}</UserContext.Provider>;
-  }
-}
+    updateUser();
+  }, [gitLabApi]);
+
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+};

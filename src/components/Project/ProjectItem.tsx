@@ -1,24 +1,19 @@
 import Accordion from 'components/Accordion';
 import MergeRequestList from 'components/MergeRequest/MergeRequestList';
-import React, { Component, ReactNode } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 interface Props {
   project: Project;
 }
 
-class ProjectItem extends Component<Props> {
-  public render(): ReactNode {
-    const { project } = this.props;
-
-    return (
-      <Accordion
-        id={project.id}
-        title={project.name_with_namespace}
-        content={<MergeRequestList mergeRequests={project.mergeRequests} />}
-      />
-    );
-  }
-}
+const ProjectItem = ({ project }: Props): JSX.Element => {
+  return (
+    <Accordion
+      id={project.id}
+      title={project.name_with_namespace}
+      content={<MergeRequestList mergeRequests={project.mergeRequests} />}
+    />
+  );
+};
 
 export default ProjectItem;

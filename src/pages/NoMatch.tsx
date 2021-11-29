@@ -1,16 +1,9 @@
-import { Component, ReactNode } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-class NoMatch extends Component<RouteComponentProps> {
-  constructor(props: RouteComponentProps) {
-    super(props);
+const NoMatch = ({ history }: RouteComponentProps): null => {
+  history.push('/');
 
-    props.history.push('/');
-  }
-
-  public render(): ReactNode {
-    return null;
-  }
-}
+  return null;
+};
 
 export default NoMatch;

@@ -1,80 +1,50 @@
 import FavicoMergeRequestsCounter from 'components/FavicoMergeRequestsCounter';
+import { GitLabApiContext } from 'components/GitLabApiProvider';
 import ProjectList from 'components/Project/ProjectList';
 import { UserProvider } from 'components/UserProvider';
-import React, { Component, ReactNode } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
-import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
+import { useContext, useEffect, useState } from 'react';
 import LocalStorage from 'services/LocalStorage';
 import { Project } from 'types/FormattedTypes';
 
-interface State {
-  projects: Project[];
-}
+const Dashboard = (): JSX.Element | null => {
+  const gitLabApi = useContext(GitLabApiContext);
 
-class Dashboard extends Component<RouteComponentProps, State> {
-  private gitLabApi!: GitLabApi;
-  private intervalRef: number | null;
+  const [projects, setProjects] = useState<Project[]>([]);
 
-  public state: State = {
-    projects: [],
-  };
-
-  constructor(props: RouteComponentProps) {
-    super(props);
-
-    this.intervalRef = null;
-
-    try {
-      this.gitLabApi = createGitLabApi();
-    } catch (error) {
-      props.history.push('/settings');
-    }
-  }
-
-  public async fetchProjects(): Promise<void> {
-    const projects = await this.gitLabApi.getProjectsWithMergeRequests();
-
-    this.setState({
-      projects,
-    });
-  }
-
-  public componentDidMount(): void {
+  useEffect(() => {
     document.title = 'GitLab Reviewer';
 
-    if (!this.gitLabApi) {
-      return;
-    }
+    const fetchProjects = async (): Promise<void> => {
+      if (!gitLabApi) {
+        return;
+      }
 
-    this.fetchProjects();
+      const projects = await gitLabApi.getProjectsWithMergeRequests();
 
-    this.intervalRef = window.setInterval(() => {
-      this.fetchProjects();
+      setProjects(projects);
+    };
+
+    fetchProjects();
+
+    const intervalRef = setInterval(() => {
+      fetchProjects();
     }, LocalStorage.getRefreshRateAsNumber() * 60 * 1000);
+
+    return () => {
+      clearInterval(intervalRef);
+    };
+  }, [gitLabApi]);
+
+  if (!gitLabApi || projects.length === 0) {
+    return null;
   }
 
-  public componentWillUnmount(): void {
-    if (this.intervalRef) {
-      window.clearInterval(this.intervalRef);
-    }
-  }
-
-  public render(): ReactNode {
-    const { projects } = this.state;
-
-    if (projects.length === 0) {
-      return null;
-    }
-
-    return (
-      <React.Fragment>
-        <UserProvider gitLabApi={this.gitLabApi}>
-          <ProjectList projects={projects} />
-          <FavicoMergeRequestsCounter projects={projects} />
-        </UserProvider>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <UserProvider>
+      <ProjectList projects={projects} />
+      <FavicoMergeRequestsCounter projects={projects} />
+    </UserProvider>
+  );
+};
 
 export default Dashboard;

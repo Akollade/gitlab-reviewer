@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+import { useEffect } from 'react';
 import { Project } from 'types/FormattedTypes';
 
 // see https://github.com/ejci/favico.js/issues/126
@@ -16,30 +16,18 @@ interface Props {
   projects: Project[];
 }
 
-class FavicoMergeRequestsCounter extends Component<Props> {
-  private favicon: favicojs.Favico = new Favico({ animation: 'fade' });
+const FavicoMergeRequestsCounter = ({ projects }: Props): JSX.Element | null => {
+  useEffect(() => {
+    const favicon: favicojs.Favico = new Favico({ animation: 'fade' });
+    const mergeRequestsLength = getMergeRequestsCount(projects);
+    favicon.badge(mergeRequestsLength);
 
-  public componentDidMount(): void {
-    const mergeRequestsLength = getMergeRequestsCount(this.props.projects);
-    this.favicon.badge(mergeRequestsLength);
-  }
+    return () => {
+      favicon.reset();
+    };
+  }, [projects]);
 
-  public componentDidUpdate({ projects: prevProjects }: Props): void {
-    const oldMergeRequestsLength = getMergeRequestsCount(prevProjects);
-    const newMergeRequestsLength = getMergeRequestsCount(this.props.projects);
-
-    if (newMergeRequestsLength !== oldMergeRequestsLength) {
-      this.favicon.badge(newMergeRequestsLength);
-    }
-  }
-
-  public componentWillUnmount(): void {
-    this.favicon.reset();
-  }
-
-  public render(): ReactNode {
-    return null;
-  }
-}
+  return null;
+};
 
 export default FavicoMergeRequestsCounter;
