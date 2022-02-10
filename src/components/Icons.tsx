@@ -7,7 +7,7 @@ import {
   SizeProp,
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
-import { faMinus, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faRocket, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { CSSProperties } from 'react';
 
@@ -51,3 +51,5 @@ export const DownvoteIcon = (props: Props): JSX.Element => (
 export const MinusIcon = (props: Props): JSX.Element => (
   <IconGenerator icon={faMinus} {...props} className="text-gray-500 text-sm" />
 );
+
+export const RocketIcon = (props: Props): JSX.Element => <IconGenerator icon={faRocket} {...props} />;
