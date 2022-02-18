@@ -9,6 +9,9 @@ const Navbar = (): JSX.Element => {
         </Link>
       </div>
       <div>
+        <NavLink className="text-indigo-600 hover:underline ml-6" to="/filters">
+          Filters
+        </NavLink>
         <NavLink className="text-indigo-600 hover:underline ml-6" to="/settings">
           Settings
         </NavLink>

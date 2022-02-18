@@ -38,7 +38,6 @@ const Settings = ({ history }: RouteComponentProps): JSX.Element => {
       [event.target.name]: event.target.value,
     });
   };
-
   return (
     <div className="max-w-xl mx-auto mt-5">
       <h1 className="text-3xl font-semibold">Settings</h1>

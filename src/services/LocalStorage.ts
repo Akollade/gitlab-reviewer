@@ -14,7 +14,9 @@ class LocalStorage {
   public setUrl(url: string) {
     return localStorage.setItem('url', url);
   }
-
+  public setSelectedProjects(selectedProjects: { id: number }) {
+    return localStorage.setItem('selected_projects', JSON.stringify(selectedProjects));
+  }
   public getRefreshRateAsNumber(): number {
     const refreshRate = this.getRefreshRate();
     return parseInt(refreshRate, 10);
@@ -23,7 +25,15 @@ class LocalStorage {
   public getRefreshRate(): string {
     return localStorage.getItem('refresh_rate') || '5';
   }
-
+  public getSelectedProjects(): Array<number> {
+    const projects = localStorage.getItem('selected_projects');
+    if (projects) {
+      const projectIds = JSON.parse(projects);
+      const projectsArr: Array<{ id: number }> = Object.values(projectIds);
+      return projectsArr.map((project) => project.id);
+    }
+    return [];
+  }
   public setRefreshRate(refreshRate: string) {
     return localStorage.setItem('refresh_rate', refreshRate);
   }

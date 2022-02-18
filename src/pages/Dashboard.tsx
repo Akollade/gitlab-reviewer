@@ -22,7 +22,6 @@ const Dashboard = (): JSX.Element | null => {
       }
 
       const projects = await gitLabApi.getProjectsWithMergeRequests();
-
       setProjects(projects);
       setFetched(true);
     };
