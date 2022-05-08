@@ -10,8 +10,8 @@ const ProjectItem = ({ project }: Props): JSX.Element => {
   return (
     <Accordion
       id={project.id}
-      title={project.name_with_namespace}
-      content={<MergeRequestList mergeRequests={project.mergeRequests} />}
+      title={project.nameWithNamespace}
+      content={<MergeRequestList mergeRequests={project.mergeRequests.nodes} />}
     />
   );
 };

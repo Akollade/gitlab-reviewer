@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { createGitLabApi, GitLabApi } from 'services/GitLabApi';
+import { GitLabApi } from 'services/GitLabApi';
 
 export const GitLabApiContext = React.createContext<GitLabApi | null>(null);
 
@@ -10,7 +10,7 @@ export const GitLabApiProvider = ({ children }: PropsWithChildren<unknown>): JSX
 
   useEffect(() => {
     try {
-      setApi(createGitLabApi());
+      setApi(GitLabApi.createGitLabApi());
     } catch (error) {
       history.push('/settings');
     }

@@ -7,7 +7,7 @@ const Favico = require('favico.js');
 
 function getMergeRequestsCount(projects: Project[]): number {
   return projects.reduce<number>(
-    (counter: number, project: Project): number => counter + project.mergeRequests.length,
+    (counter: number, project: Project): number => counter + project.mergeRequests.nodes.length,
     0
   );
 }
