@@ -15,7 +15,7 @@ UI to see all GitLab merge requests of your team in one place.
 ### Clone the project
 
 ```shell
-$ git clone https://github.com/TheGrowingPlant/gitlab-reviewer.git
+$ git clone https://github.com/Akollade/gitlab-reviewer.git
 $ cd gitlab-reviewer
 ```
 
@@ -43,4 +43,4 @@ Thanks :
 
 ## License
 
-[gitlab-reviewer](https://github.com/TheGrowingPlant/gitlab-reviewer) is licensed under the [MIT license](LICENSE).
+[gitlab-reviewer](https://github.com/Akollade/gitlab-reviewer) is licensed under the [MIT license](LICENSE).
