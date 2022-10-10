@@ -1,5 +1,7 @@
 # GitLab Reviewer
 
+**❗ This project is abandoned and no longer actively maintained.**
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/80c95e9b-a3a7-4b2a-a115-5508fc98a619/deploy-status)](https://app.netlify.com/sites/gitlab-reviewer/deploys)
 
 UI to see all GitLab merge requests of your team in one place.
